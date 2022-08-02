@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface MenuItemProps {
   active?: boolean;
@@ -6,7 +6,7 @@ interface MenuItemProps {
 
 export const MenuContainer = styled.div`
   width: 100px;
-  background-color: #fff8;
+  background-color: #b3c4f8;
   border-radius: 0px 16px 16px 0px;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,12 @@ export const MenuItem = styled.div<MenuItemProps>`
   justify-content: center;
   align-items: center;
   background-color: #fff0;
+
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: #5c82f2;
+    `}
 `;
 
 export const MenuButton = styled.button<MenuItemProps>`
@@ -44,12 +50,21 @@ export const MenuButton = styled.button<MenuItemProps>`
   margin-right: 16px;
   padding: 16px;
   cursor: pointer;
-  color: #164cee;
+  color: #0511f2;
 
   :hover {
     transition: all, 0.5s;
     transform: scale3d(1.05, 1.05, 1.05);
-    background-color: #164cee;
-    color: #fff8;
+    background-color: #0511f2;
+    color: #fff;
   }
+
+  ${({ active }) =>
+    active &&
+    css`
+      background-color: #0511f2;
+      color: #fff;
+      :hover {
+      }
+    `}
 `;

@@ -1,5 +1,5 @@
 import * as Styled from "./styles";
-import logo from "../../assets/logo-sem-fundo.png";
+import logo from "../../assets/logo.png";
 import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 
 const Menu = () => {
@@ -7,8 +7,8 @@ const Menu = () => {
     <Styled.MenuContainer>
       <img src={logo} alt="logo" />
       <nav>
-        <Styled.MenuItem>
-          <Styled.MenuButton>
+        <Styled.MenuItem active>
+          <Styled.MenuButton active>
             <HomeIcon />
           </Styled.MenuButton>
         </Styled.MenuItem>
