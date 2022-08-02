@@ -1,18 +1,28 @@
 import * as Styled from "./styles";
 import logo from "../../assets/logo-sem-fundo.png";
-import HomeIcon from "../../assets/icons/home.svg";
-import SettingsIcon from "../../assets/icons/settings.svg";
-import LogoutIcon from "../../assets/icons/logout.svg";
+import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 
 const Menu = () => {
   return (
     <Styled.MenuContainer>
-      <img src={logo} width="100%" alt="logo" />
-      <div>
-        <img src={HomeIcon} alt="home" />
-        <img src={SettingsIcon} alt="settings" />
-      </div>
-      <img src={LogoutIcon} alt="logout" />
+      <img src={logo} alt="logo" />
+      <nav>
+        <Styled.MenuItem>
+          <Styled.MenuButton>
+            <HomeIcon />
+          </Styled.MenuButton>
+        </Styled.MenuItem>
+        <Styled.MenuItem>
+          <Styled.MenuButton>
+            <SettingsIcon />
+          </Styled.MenuButton>
+        </Styled.MenuItem>
+      </nav>
+      <Styled.MenuItem>
+        <Styled.MenuButton>
+          <LogoutIcon />
+        </Styled.MenuButton>
+      </Styled.MenuItem>
     </Styled.MenuContainer>
   );
 };
