@@ -1,21 +1,22 @@
+import { SearchIcon } from "../../assets/icons";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
 
 const Home = () => {
   return (
     <Styled.HomeContainer>
-      <Menu />
-      <div className="content">
-        <header>
+      <Menu path="home" />
+      <Styled.HomeContentContainer>
+        <Styled.HomeContentHeader>
           <div>
-            <h1>Smartize Store</h1>
+            <h1>smartize store</h1>
             <p>{new Date(Date.now()).toLocaleString()} </p>
           </div>
           <div>
-            <img alt="search-icon" />
+            <SearchIcon />
             <input placeholder="pesquise aqui" />
           </div>
-        </header>
+        </Styled.HomeContentHeader>
         <section>
           <div>
             <p>Jogos</p>
@@ -52,7 +53,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-      </div>
+      </Styled.HomeContentContainer>
       <aside>
         <header>
           <div>
