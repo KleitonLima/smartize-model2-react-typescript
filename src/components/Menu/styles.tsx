@@ -64,7 +64,5 @@ export const MenuButton = styled.button<MenuItemProps>`
     css`
       background-color: #0511f2;
       color: #fff;
-      :hover {
-      }
     `}
 `;
