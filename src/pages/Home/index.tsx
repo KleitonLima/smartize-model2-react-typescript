@@ -26,9 +26,11 @@ const Home = () => {
           </Styled.SearchInputContainer>
         </Styled.HomeContentHeader>
         <section>
-          <div>
-            <p>Jogos</p>
-          </div>
+          <Styled.CategoryBar>
+            <Styled.CategoryButton active>Jogos</Styled.CategoryButton>
+            <Styled.CategoryButton>Pacotes in-game</Styled.CategoryButton>
+            <Styled.CategoryButton>Produtos físicos</Styled.CategoryButton>
+          </Styled.CategoryBar>
           <div>
             <p>Escolha seus jogos</p>
             <div>
