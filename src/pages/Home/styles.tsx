@@ -18,11 +18,40 @@ export const HomeContentHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 0px 16px 0px 16px;
+`;
 
+export const TitleContainer = styled.div`
+  h1 {
+    font-family: "Major Mono Display", monospace;
+  }
+
+  p {
+    padding-top: 16px;
+    text-transform: capitalize;
+  }
+`;
+
+export const SearchInputContainer = styled.div`
+  width: 150px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #b3c4f8;
+  border-radius: 4px;
+  color: #0511f2;
+
+  /* buscar outra solução */
   div {
-    h1 {
-      font-family: "Major Mono Display", monospace;
-      padding-bottom: 16px;
+    cursor: pointer;
+  }
+
+  input {
+    width: 65%;
+    background-color: #fff0;
+    outline: none;
+    ::placeholder {
+      color: #0511f2;
     }
   }
 `;
