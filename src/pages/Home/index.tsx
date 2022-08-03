@@ -1,21 +1,27 @@
+import { DateTime } from "luxon";
 import { SearchIcon } from "../../assets/icons";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
 
 const Home = () => {
+  const actualDate = DateTime.now();
+  const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
+
   return (
     <Styled.HomeContainer>
       <Menu path="home" />
       <Styled.HomeContentContainer>
         <Styled.HomeContentHeader>
-          <div>
-            <h1>smartize store</h1>
-            <p>{new Date(Date.now()).toLocaleString()} </p>
-          </div>
-          <div>
+          <Styled.TitleContainer>
+            <h1>
+              smartize <br /> store
+            </h1>
+            <p>{formatedDate}</p>
+          </Styled.TitleContainer>
+          <Styled.SearchInputContainer>
             <SearchIcon />
             <input placeholder="pesquise aqui" />
-          </div>
+          </Styled.SearchInputContainer>
         </Styled.HomeContentHeader>
         <section>
           <div>
