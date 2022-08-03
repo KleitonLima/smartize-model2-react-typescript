@@ -19,7 +19,9 @@ const Home = () => {
             <p>{formatedDate}</p>
           </Styled.TitleContainer>
           <Styled.SearchInputContainer>
-            <SearchIcon />
+            <div>
+              <SearchIcon />
+            </div>
             <input placeholder="pesquise aqui" />
           </Styled.SearchInputContainer>
         </Styled.HomeContentHeader>

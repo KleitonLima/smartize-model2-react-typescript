@@ -41,6 +41,11 @@ export const SearchInputContainer = styled.div`
   border-radius: 4px;
   color: #0511f2;
 
+  /* buscar outra solução */
+  div {
+    cursor: pointer;
+  }
+
   input {
     width: 65%;
     background-color: #fff0;
