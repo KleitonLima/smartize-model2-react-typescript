@@ -1,5 +1,5 @@
 import * as Styled from "./styles";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/imgs/logo.png";
 import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 
 interface MenuProps {
