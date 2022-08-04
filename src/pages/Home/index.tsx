@@ -26,38 +26,42 @@ const Home = () => {
           </Styled.SearchInputContainer>
         </Styled.HomeContentHeader>
         <section>
-          <div>
-            <p>Jogos</p>
-          </div>
-          <div>
-            <p>Escolha seus jogos</p>
+          <Styled.GenreBar>
+            <Styled.GenreSelectButton active>Todos</Styled.GenreSelectButton>
+            <Styled.GenreSelectButton>Ação</Styled.GenreSelectButton>
+            <Styled.GenreSelectButton>Aventura</Styled.GenreSelectButton>
+          </Styled.GenreBar>
+          <Styled.GamesHeaderContainer>
             <div>
-              <p>Ordem</p>
-              <select>
+              <p>Escolha seus jogos</p>
+            </div>
+            <div>
+              <p>Ordem:</p>
+              <Styled.GamesOrderSelect>
                 <option>Mais vendidos</option>
                 <option>Mais baratos</option>
                 <option>Mais caros</option>
-              </select>
+              </Styled.GamesOrderSelect>
             </div>
-            <div className="list">
-              <div>
-                <img alt="img-jogo" />
-                <h3>Nome jogo</h3>
-                <h4>R$0.00</h4>
-                <p>Breve descrição</p>
-              </div>
-              <div>
-                <img alt="img-jogo" />
-                <h3>Nome jogo</h3>
-                <h4>R$0.00</h4>
-                <p>Breve descrição</p>
-              </div>
-              <div>
-                <img alt="img-jogo" />
-                <h3>Nome jogo</h3>
-                <h4>R$0.00</h4>
-                <p>Breve descrição</p>
-              </div>
+          </Styled.GamesHeaderContainer>
+          <div className="list">
+            <div>
+              <img alt="img-jogo" />
+              <h3>Nome jogo</h3>
+              <h4>R$0.00</h4>
+              <p>Breve descrição</p>
+            </div>
+            <div>
+              <img alt="img-jogo" />
+              <h3>Nome jogo</h3>
+              <h4>R$0.00</h4>
+              <p>Breve descrição</p>
+            </div>
+            <div>
+              <img alt="img-jogo" />
+              <h3>Nome jogo</h3>
+              <h4>R$0.00</h4>
+              <p>Breve descrição</p>
             </div>
           </div>
         </section>
@@ -68,15 +72,14 @@ const Home = () => {
             <h2>Pedido #12</h2>
           </div>
           <div>
-            <button>Retirar no local</button>
-            <button>Receber em casa</button>
+            <button>Compra própria</button>
+            <button>Presentear um amigo</button>
             <button>Limpar lista</button>
           </div>
         </header>
         <div className="bag">
           <div>
             <h3>Item</h3>
-            <h3>Qtd</h3>
             <h3>Preço</h3>
           </div>
           <div className="itens-container">
