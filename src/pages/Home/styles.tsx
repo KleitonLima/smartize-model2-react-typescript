@@ -67,13 +67,13 @@ export const SearchInputContainer = styled.div`
   }
 `;
 
-export const CategoryBar = styled.div`
-  width: 90%;
+export const GenreBar = styled.div`
+  width: 95%;
   color: #0511f2;
   border-bottom: 2px solid #b3c4f8;
 `;
 
-export const CategoryButton = styled.button<CategoryButtonProps>`
+export const GenreSelectButton = styled.button<CategoryButtonProps>`
   border: none;
   font-weight: bold;
   color: #0511f2;
@@ -91,4 +91,27 @@ export const CategoryButton = styled.button<CategoryButtonProps>`
     css`
       border-bottom: 4px solid #0511f2;
     `}
+`;
+
+export const GamesHeaderContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+
+  div {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+`;
+
+export const GamesOrderSelect = styled.select`
+  background-color: #0511f2;
+  color: #fff;
+  padding: 4px;
+  border-radius: 4px;
+  outline: none;
 `;
