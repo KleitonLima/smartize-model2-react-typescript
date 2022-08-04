@@ -46,21 +46,21 @@ const Home = () => {
           </Styled.GamesHeaderContainer>
           <div className="list">
             <div>
-              <img alt="img-jogo" />
+              <img alt="img-game" />
               <h3>Nome jogo</h3>
-              <h4>R$0.00</h4>
+              <h4>Preço</h4>
               <p>Breve descrição</p>
             </div>
             <div>
-              <img alt="img-jogo" />
+              <img alt="img-game" />
               <h3>Nome jogo</h3>
-              <h4>R$0.00</h4>
+              <h4>Preço</h4>
               <p>Breve descrição</p>
             </div>
             <div>
-              <img alt="img-jogo" />
+              <img alt="img-game" />
               <h3>Nome jogo</h3>
-              <h4>R$0.00</h4>
+              <h4>Preço</h4>
               <p>Breve descrição</p>
             </div>
           </div>
