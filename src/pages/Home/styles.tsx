@@ -109,7 +109,7 @@ export const GamesHeaderContainer = styled.div`
 `;
 
 export const GamesOrderSelect = styled.select`
-  background-color: #000000;
+  background-color: #9f41d6b2;
   color: #fff;
   padding: 4px;
   border-radius: 4px;
