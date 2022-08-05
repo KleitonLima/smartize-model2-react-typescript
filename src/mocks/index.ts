@@ -26,7 +26,7 @@ export const mockedGame: T.Game[] = [
   },
   {
     id: "c8b63a2a-7b92-4dcd-bcde-6c9091ef526f",
-    name: "Vector",
+    name: "Vector Full",
     description: "Vector é um jogo estilo arcade vibrante que te põe no papel de um corredor que não quer ser capturado pelo sistema.",
     price: 1.49,
     image: vector,
