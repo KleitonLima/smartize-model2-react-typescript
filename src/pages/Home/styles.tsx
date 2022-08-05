@@ -9,7 +9,7 @@ export const HomeContainer = styled.div`
   width: 100%;
   height: 100vh;
   background-color: #5c82f2;
-  color: #e9eef2;
+  color: #fff;
 
   section {
     width: 100%;
@@ -109,7 +109,7 @@ export const GamesHeaderContainer = styled.div`
 `;
 
 export const GamesOrderSelect = styled.select`
-  background-color: #0511f2;
+  background-color: #000000;
   color: #fff;
   padding: 4px;
   border-radius: 4px;
