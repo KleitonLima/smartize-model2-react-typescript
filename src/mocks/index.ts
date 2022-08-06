@@ -3,7 +3,7 @@ import minecraft from "../assets/imgs/logo-minecraft.png";
 import gta from "../assets/imgs/logo-gta.png";
 import vector from "../assets/imgs/logo-vector.png";
 
-export const mockedGame: T.Game[] = [
+export const mockedGames: T.Game[] = [
   {
     id: "f4d8339c-ffe1-45d0-92f1-14f2968bdd7f",
     name: "Minecraft",
@@ -36,7 +36,7 @@ export const mockedGame: T.Game[] = [
   },
 ];
 
-export const mockedUser: T.User[] = [
+export const mockedUsers: T.User[] = [
   {
     id: "af38cbe3-003c-4fbf-aeb6-be144667d11b",
     name: "Kleiton",
@@ -47,7 +47,7 @@ export const mockedUser: T.User[] = [
   },
 ];
 
-export const mockedBag: T.Bag[] = [
+export const mockedBags: T.Bag[] = [
   {
     id: "ef81e8bc-e9f5-4213-812c-f18c58b902c2",
     number: 1,
@@ -68,7 +68,7 @@ export const mockedBag: T.Bag[] = [
   },
 ];
 
-export const mockedGenre: T.Genre[] = [
+export const mockedGenres: T.Genre[] = [
   {
     id: "ce315e82-57d7-4a94-93f3-b2d70a231e5e",
     name: "Ação",
@@ -89,7 +89,7 @@ export const mockedGenre: T.Genre[] = [
   },
 ];
 
-export const mockedOrder: T.Order[] = [
+export const mockedOrders: T.Order[] = [
   {
     id: "489b8f88-0cb1-49f1-b8f2-529d82fc3f80",
     userId: "af38cbe3-003c-4fbf-aeb6-be144667d11b",
@@ -98,7 +98,7 @@ export const mockedOrder: T.Order[] = [
   },
 ];
 
-export const mockedOrderToGame: T.OrderToGame[] = [
+export const mockedOrdersToGame: T.OrderToGame[] = [
   {
     id: "c895593b-6908-4684-98dc-14c51e6d4eec",
     gameId: "f4d8339c-ffe1-45d0-92f1-14f2968bdd7f",
@@ -119,7 +119,7 @@ export const mockedOrderToGame: T.OrderToGame[] = [
   },
 ];
 
-export const mockedFavorite: T.Favorite[] = [
+export const mockedFavorites: T.Favorite[] = [
   {
     id: "b07b1250-3e00-4a44-8d00-c389c93798fa",
     userId: "af38cbe3-003c-4fbf-aeb6-be144667d11b",
