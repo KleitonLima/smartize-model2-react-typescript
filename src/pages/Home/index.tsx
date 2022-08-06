@@ -1,11 +1,18 @@
-import { DateTime } from "luxon";
+import GamesList from "../../components/GamesList";
 import { SearchIcon } from "../../assets/icons";
+import { mockedGenres } from "../../mocks";
+import { mockedGames } from "../../mocks";
+import { Game, Genre } from "../../types";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
-import { mockedGame } from "../../mocks";
-import GamesList from "../../components/GamesList";
+import { DateTime } from "luxon";
+import { useState } from "react";
 
 const Home = () => {
+  const [selectedGenre, setSelectedGenre] = useState<Genre>(mockedGenres[0]);
+
+  const filteredGames: Game[] = mockedGames.filter((elem) => elem.genreId === selectedGenre.id);
+
   const actualDate = DateTime.now();
   const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
 
@@ -29,9 +36,14 @@ const Home = () => {
         </Styled.HomeContentHeader>
         <section>
           <Styled.GenreBar>
-            <Styled.GenreSelectButton active>Todos</Styled.GenreSelectButton>
-            <Styled.GenreSelectButton>Ação</Styled.GenreSelectButton>
-            <Styled.GenreSelectButton>Aventura</Styled.GenreSelectButton>
+            <Styled.GenreSelectButton>Todos</Styled.GenreSelectButton>
+            {mockedGenres.map((elem) => {
+              return (
+                <Styled.GenreSelectButton active={elem.name === selectedGenre.name} onClick={() => setSelectedGenre(elem)}>
+                  {elem.name}
+                </Styled.GenreSelectButton>
+              );
+            })}
           </Styled.GenreBar>
           <Styled.GamesHeaderContainer>
             <div>
@@ -46,7 +58,7 @@ const Home = () => {
               </Styled.GamesOrderSelect>
             </div>
           </Styled.GamesHeaderContainer>
-          <GamesList list={mockedGame} />
+          <GamesList list={filteredGames} />
         </section>
       </Styled.HomeContentContainer>
       <aside>
