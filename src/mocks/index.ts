@@ -16,7 +16,7 @@ export const mockedGame: T.Game[] = [
   },
   {
     id: "b2083db3-19ed-4406-a419-ee1d5b5b2949",
-    name: "Grand Theft Auto(GTA): San Andreas",
+    name: "GTA: San Andreas",
     description: "Grand Theft Auto: San Andreas é um jogo eletrônico de ação-aventura com elementos de RPG e stealth.",
     price: 14.99,
     image: gta,
