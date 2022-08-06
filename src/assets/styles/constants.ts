@@ -1,6 +1,6 @@
 export const constants = {
   logoFontFamily: "Josefin Sans",
-  bodyFontFamily: "Major Mono Display",
+  bodyFontFamily: "Inconsolata",
 
   logoFonteSize: "28px",
   headingFontSize: "28px",
