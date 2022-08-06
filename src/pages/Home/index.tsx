@@ -2,6 +2,8 @@ import { DateTime } from "luxon";
 import { SearchIcon } from "../../assets/icons";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
+import { mockedGame } from "../../mocks";
+import GamesList from "../../components/GamesList";
 
 const Home = () => {
   const actualDate = DateTime.now();
@@ -44,26 +46,7 @@ const Home = () => {
               </Styled.GamesOrderSelect>
             </div>
           </Styled.GamesHeaderContainer>
-          <div className="list">
-            <div>
-              <img alt="img-game" />
-              <h3>Nome jogo</h3>
-              <h4>Preço</h4>
-              <p>Breve descrição</p>
-            </div>
-            <div>
-              <img alt="img-game" />
-              <h3>Nome jogo</h3>
-              <h4>Preço</h4>
-              <p>Breve descrição</p>
-            </div>
-            <div>
-              <img alt="img-game" />
-              <h3>Nome jogo</h3>
-              <h4>Preço</h4>
-              <p>Breve descrição</p>
-            </div>
-          </div>
+          <GamesList list={mockedGame} />
         </section>
       </Styled.HomeContentContainer>
       <aside>
