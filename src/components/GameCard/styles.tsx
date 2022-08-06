@@ -27,6 +27,7 @@ export const CardContainer = styled.div<CardContainerProps>`
       height: 150px;
       position: absolute;
       top: -32px;
+      border-radius: 16px;
     }
   `}
 `;
