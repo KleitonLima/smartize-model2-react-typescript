@@ -8,7 +8,11 @@ interface ButtonProps {
 }
 
 const Button = ({ text, onClick, variant = false, size = false }: ButtonProps) => {
-  return <Styled.StyledButton onClick={onClick}>{text}</Styled.StyledButton>;
+  return (
+    <Styled.StyledButton onClick={onClick} variant={variant} size={size}>
+      {text}
+    </Styled.StyledButton>
+  );
 };
 
 export default Button;

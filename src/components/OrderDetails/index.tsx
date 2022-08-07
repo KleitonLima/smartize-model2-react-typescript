@@ -4,80 +4,48 @@ import * as Styled from "./styles";
 export const OrderDetails = () => {
   return (
     <Styled.OrderDetailsContainer>
-      <aside>
-        <Styled.OrderDetailsHeader>
+      <Styled.OrderDetailsHeader>
+        <h2>Pedido #12</h2>
+        <div>
           <div>
-            <h2>Pedido #12</h2>
+            <Button text="Compra própria" onClick={() => {}} />
+            <Button text="Presentear amigo(a)" onClick={() => {}} />
+          </div>
+        </div>
+      </Styled.OrderDetailsHeader>
+      <Styled.GamesOrderContainer>
+        <header>
+          <h3>Item</h3>
+          <h3>Preço</h3>
+        </header>
+        <body className="itens-container">
+          <img alt="imagem" />
+          <div>
+            <p>Nome</p>
+            <p>Preço</p>
           </div>
           <div>
-            <div>
-              <Button text="Compra própria" onClick={() => {}} />
-              <Button text="Presentear amigo(a)" onClick={() => {}} />
-            </div>
+            <p>R$0,00</p>
+            <img alt="lixeira" />
           </div>
-        </Styled.OrderDetailsHeader>
-        <div className="bag">
-          <div>
-            <h3>Item</h3>
-            <h3>Preço</h3>
-          </div>
-          <div className="itens-container">
-            <div className="item">
-              <img alt="imagem-jogo" />
-              <div>
-                <p>Nome do jogo</p>
-                <p>Preço do jogo</p>
-              </div>
-              <div>
-                <input value={1} />
-                <p>Preço</p>
-                <img alt="icone-lixeira" />
-              </div>
-            </div>
-            <div className="item">
-              <img alt="imagem-jogo" />
-              <div>
-                <p>Nome do jogo</p>
-                <p>Preço do jogo</p>
-              </div>
-              <div>
-                <input value={1} />
-                <p>Preço</p>
-                <img alt="icone-lixeira" />
-              </div>
-            </div>
-            <div className="Item">
-              <img alt="imagem-jogo" />
-              <div>
-                <p>Nome do jogo</p>
-                <p>Preço do jogo</p>
-              </div>
-              <div>
-                <input value={1} />
-                <p>Preço</p>
-                <img alt="icone-lixeira" />
-              </div>
-            </div>
-          </div>
+        </body>
+      </Styled.GamesOrderContainer>
+      <Styled.OrderDetailsFooter>
+        <input type="text" placeholder="cupom de desconto" />
+
+        <div>
+          <h4>Desconto</h4>
+          <h4>R$0.00</h4>
         </div>
         <div>
-          <input type="text" placeholder="cupom de desconto" />
-          <div>
-            <div>
-              <p>Desconto</p>
-              <p>R$0.00</p>
-            </div>
-            <div>
-              <p>Sub total</p>
-              <p>R$0.00</p>
-            </div>
-            <div>
-              <Button text="Limpar lista" onClick={() => {}} />
-              <Button text="Continuar para pagamento" onClick={() => {}} />
-            </div>
-          </div>
+          <h4>Sub total</h4>
+          <h4>R$0.00</h4>
         </div>
-      </aside>
+        <div>
+          <Button text="Limpar lista" onClick={() => {}} size="large" variant="cancel" />
+          <Button text="Pagamento" onClick={() => {}} variant="disable" />
+        </div>
+      </Styled.OrderDetailsFooter>
     </Styled.OrderDetailsContainer>
   );
 };
