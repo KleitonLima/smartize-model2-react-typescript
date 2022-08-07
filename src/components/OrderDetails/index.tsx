@@ -1,3 +1,4 @@
+import Button from "../Button";
 import * as Styled from "./styles";
 
 export const OrderDetails = () => {
@@ -10,10 +11,9 @@ export const OrderDetails = () => {
           </div>
           <div>
             <div>
-              <button>Compra própria</button>
-              <button>Presentear um amigo</button>
+              <Button text="Compra própria" onClick={() => {}} />
+              <Button text="Presentear amigo(a)" onClick={() => {}} />
             </div>
-            <button>Limpar lista</button>
           </div>
         </Styled.OrderDetailsHeader>
         <div className="bag">
@@ -71,7 +71,10 @@ export const OrderDetails = () => {
               <p>Sub total</p>
               <p>R$0.00</p>
             </div>
-            <button>Continuar para pagamento</button>
+            <div>
+              <Button text="Limpar lista" onClick={() => {}} />
+              <Button text="Continuar para pagamento" onClick={() => {}} />
+            </div>
           </div>
         </div>
       </aside>
