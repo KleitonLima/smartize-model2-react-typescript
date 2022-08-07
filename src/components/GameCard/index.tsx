@@ -1,4 +1,5 @@
 import { Game } from "../../types/index.js";
+import * as styled from "./styles";
 
 interface GameCardProps {
   game: Game;
@@ -6,12 +7,12 @@ interface GameCardProps {
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <div>
-      <img alt="img game" />
-      <h3>Nome</h3>
-      <p>Preço</p>
-      <p>Descrição</p>
-    </div>
+    <styled.CardContainer>
+      <img alt={game.name} src={game.image} />
+      <h3>{game.name}</h3>
+      <h3>R${game.price}</h3>
+      <p>{game.description}</p>
+    </styled.CardContainer>
   );
 };
 
