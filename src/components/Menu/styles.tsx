@@ -53,8 +53,8 @@ export const MenuButton = styled.button<MenuItemProps>`
   color: #0511f2;
 
   :hover {
-    transition: all, 0.5s;
-    transform: scale3d(1.05, 1.05, 1.05);
+    transition: all, 0.3s;
+    transform: scale(1.05);
     background-color: #0511f2;
     color: #fff;
   }
