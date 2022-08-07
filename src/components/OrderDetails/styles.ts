@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 export const OrderDetailsContainer = styled.aside`
   ${({ theme }) => css`
-    width: calc(30% - 80px);
+    width: calc(35% - 80px);
     background-color: ${theme.colors.backgroundMenuColor};
     color: ${theme.colors.primaryColor};
     border-radius: 16px 0px 0px 16px;
@@ -13,6 +13,6 @@ export const OrderDetailsContainer = styled.aside`
 export const OrderDetailsHeader = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    height: 20vh;
+    height: 15vh;
   `}
 `;
