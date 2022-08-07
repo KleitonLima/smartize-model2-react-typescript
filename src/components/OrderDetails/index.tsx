@@ -72,8 +72,8 @@ export const OrderDetails = () => {
               <p>R$0.00</p>
             </div>
             <div>
-              <Button text="Limpar lista" onClick={() => {}} />
-              <Button text="Continuar para pagamento" onClick={() => {}} />
+              <Button text="Limpar lista" onClick={() => {}} size="large" variant="cancel" />
+              <Button text="Pagamento" onClick={() => {}} variant="disable" />
             </div>
           </div>
         </div>
