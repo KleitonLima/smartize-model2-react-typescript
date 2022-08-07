@@ -20,7 +20,7 @@ export const HomeContainer = styled.div`
 `;
 
 export const HomeContentContainer = styled.div`
-  width: 70%;
+  width: 65%;
 `;
 
 export const HomeContentHeader = styled.header`
