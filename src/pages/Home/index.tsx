@@ -1,13 +1,13 @@
+import OrderDetails from "../../components/OrderDetails";
 import GamesList from "../../components/GamesList";
-import { SearchIcon } from "../../assets/icons";
+import Menu from "../../components/Menu";
 import { mockedGenres } from "../../mocks";
 import { mockedGames } from "../../mocks";
+import { SearchIcon } from "../../assets/icons";
 import { Game, Genre } from "../../types";
-import Menu from "../../components/Menu";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
 import { useState } from "react";
-import { OrderDetails } from "../../components/OrderDetails";
 
 const Home = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>(mockedGenres[0]);
