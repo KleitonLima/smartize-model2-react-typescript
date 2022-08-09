@@ -1,11 +1,13 @@
+import { mockedGames } from "../../mocks";
 import Button from "../Button";
+import CheckoutCard from "../CheckoutCard";
 import * as Styled from "./styles";
 
-export const OrderDetails = () => {
+const OrderDetails = () => {
   return (
     <Styled.OrderDetailsContainer>
       <Styled.OrderDetailsHeader>
-        <h2>Pedido #12</h2>
+        <h2>Pedido #33</h2>
         <div>
           <div>
             <Button text="Compra própria" onClick={() => {}} />
@@ -13,26 +15,19 @@ export const OrderDetails = () => {
           </div>
         </div>
       </Styled.OrderDetailsHeader>
-      <Styled.GamesOrderContainer>
+      <Styled.CheckoutDetailsContainer>
         <header>
           <h3>Item</h3>
           <h3>Preço</h3>
         </header>
-        <body className="itens-container">
-          <img alt="imagem" />
-          <div>
-            <p>Nome</p>
-            <p>Preço</p>
-          </div>
-          <div>
-            <p>R$0,00</p>
-            <img alt="lixeira" />
-          </div>
-        </body>
-      </Styled.GamesOrderContainer>
+        <Styled.CheckoutCardContainer>
+          <CheckoutCard game={mockedGames[0]} />
+          <CheckoutCard game={mockedGames[1]} />
+          <CheckoutCard game={mockedGames[2]} />
+        </Styled.CheckoutCardContainer>
+      </Styled.CheckoutDetailsContainer>
       <Styled.OrderDetailsFooter>
         <input type="text" placeholder="cupom de desconto" />
-
         <div>
           <h4>Desconto</h4>
           <h4>R$0.00</h4>
@@ -49,3 +44,5 @@ export const OrderDetails = () => {
     </Styled.OrderDetailsContainer>
   );
 };
+
+export default OrderDetails;

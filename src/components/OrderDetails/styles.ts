@@ -26,7 +26,7 @@ export const OrderDetailsHeader = styled.div`
   `}
 `;
 
-export const GamesOrderContainer = styled.div`
+export const CheckoutDetailsContainer = styled.div`
   ${({ theme }) => css`
     width: 100%;
     display: flex;
@@ -37,13 +37,21 @@ export const GamesOrderContainer = styled.div`
       display: flex;
       justify-content: space-between;
       border-bottom: 2px solid ${theme.colors.backgroundColor};
-      margin-bottom: 16px;
       padding-bottom: 16px;
 
       h3 {
-        padding: 0px 8px;
+        padding: 0px 40px 0px 8px;
       }
     }
+  `}
+`;
+
+export const CheckoutCardContainer = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   `}
 `;
 
@@ -57,7 +65,6 @@ export const OrderDetailsFooter = styled.footer`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    
 
     div {
       display: flex;
