@@ -8,8 +8,8 @@ interface StyledButtonProps {
 export const StyledButton = styled.button<StyledButtonProps>`
   ${({ theme, variant, size }) => css`
     background-color: ${theme.colors.primaryColor};
-    width: 145px;
-    height: 30px;
+    width: 298px;
+    height: 40px;
     border-radius: 4px;
     border: 1px solid #000;
     cursor: pointer;
@@ -36,8 +36,14 @@ export const StyledButton = styled.button<StyledButtonProps>`
       background-color: red;
     `}
 
-    ${size === "small" && css``}
+    ${size === "small" &&
+    css`
+      width: 172px;
+    `}
     
-    ${size === "large" && css``}
+    ${size === "large" &&
+    css`
+      width: 358px;
+    `}
   `}
 `;
