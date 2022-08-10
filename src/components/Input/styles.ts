@@ -1,23 +1,27 @@
 import styled, { css } from "styled-components";
 
 interface StyledInputProps {
-  background: "secondary";
-  inputSize: "small" | "large";
+  background?: "secondary";
+  inputSize?: "small" | "large";
 }
 
 export const StyledInput = styled.input<StyledInputProps>`
   ${({ theme, background, inputSize }) => css`
-    width: 290px;
+    all: unset;
+    width: 298px;
+    height: 40px;
+    padding: 0px 16px;
+    box-sizing: border-box;
     border-radius: 4px;
     background-color: ${theme.colors.backgroundMenuColor};
 
     ${inputSize === "small" &&
     css`
-      width: 190px;
+      width: 172px;
     `}
     ${inputSize === "large" &&
     css`
-      width: 390px;
+      width: 358px;
     `}
 
     ${background === "secondary" &&
