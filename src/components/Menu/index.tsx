@@ -2,12 +2,14 @@ import * as Styled from "./styles";
 import logo from "../../assets/imgs/logo-smartize.png";
 import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 import { useNavigate } from "react-router-dom";
+import { Dispatch, SetStateAction } from "react";
 
 interface MenuProps {
   path: "home" | "settings";
+  setLogged: Dispatch<SetStateAction<boolean>>;
 }
 
-const Menu = ({ path }: MenuProps) => {
+const Menu = ({ path, setLogged }: MenuProps) => {
   const navigate = useNavigate();
 
   return (
@@ -26,7 +28,7 @@ const Menu = ({ path }: MenuProps) => {
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem>
-        <Styled.MenuButton onClick={() => navigate("/login")}>
+        <Styled.MenuButton onClick={() => (navigate("/login"), setLogged(false))}>
           <LogoutIcon />
         </Styled.MenuButton>
       </Styled.MenuItem>
