@@ -1,15 +1,15 @@
+import { ButtonHTMLAttributes } from "react";
 import * as Styled from "./styles";
 
-interface ButtonProps {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   text: string;
-  onClick: () => void;
-  variant?: "disable" | "cancel" | false;
-  size?: "small" | "large" | false;
+  variant?: "disable" | "cancel";
+  size?: "small" | "large";
 }
 
-const Button = ({ text, onClick, variant = false, size = false }: ButtonProps) => {
+const Button = ({ text, variant, size }: ButtonProps) => {
   return (
-    <Styled.StyledButton onClick={onClick} variant={variant} size={size}>
+    <Styled.StyledButton variant={variant} size={size}>
       {text}
     </Styled.StyledButton>
   );
