@@ -7,9 +7,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "small" | "large";
 }
 
-const Button = ({ text, variant, size }: ButtonProps) => {
+const Button = ({ text, variant, size, ...props }: ButtonProps) => {
   return (
-    <Styled.StyledButton variant={variant} size={size}>
+    <Styled.StyledButton {...props} variant={variant} size={size}>
       {text}
     </Styled.StyledButton>
   );
