@@ -1,12 +1,15 @@
 import * as Styled from "./styles";
 import logo from "../../assets/imgs/logo-smartize.png";
 import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
+import { useNavigate } from "react-router-dom";
 
 interface MenuProps {
   path: "home" | "settings";
 }
 
 const Menu = ({ path }: MenuProps) => {
+  const navigate = useNavigate();
+
   return (
     <Styled.MenuContainer>
       <img src={logo} alt="logo" />
@@ -23,7 +26,7 @@ const Menu = ({ path }: MenuProps) => {
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem>
-        <Styled.MenuButton>
+        <Styled.MenuButton onClick={() => navigate("/login")}>
           <LogoutIcon />
         </Styled.MenuButton>
       </Styled.MenuItem>
