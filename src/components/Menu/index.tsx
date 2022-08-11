@@ -17,12 +17,12 @@ const Menu = ({ path, setLogged }: MenuProps) => {
       <img src={logo} alt="logo" />
       <nav>
         <Styled.MenuItem active={path === "home"}>
-          <Styled.MenuButton active={path === "home"}>
+          <Styled.MenuButton active={path === "home"} onClick={() => navigate("/")}>
             <HomeIcon />
           </Styled.MenuButton>
         </Styled.MenuItem>
         <Styled.MenuItem active={path === "settings"}>
-          <Styled.MenuButton active={path === "settings"}>
+          <Styled.MenuButton active={path === "settings"} onClick={() => navigate("/settings")}>
             <SettingsIcon />
           </Styled.MenuButton>
         </Styled.MenuItem>

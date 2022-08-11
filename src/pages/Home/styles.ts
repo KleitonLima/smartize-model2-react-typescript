@@ -28,6 +28,7 @@ export const HomeContentHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-sizing: border-box;
   padding: 0px 16px 0px 16px;
 `;
 
@@ -39,6 +40,7 @@ export const TitleContainer = styled.div`
   p {
     padding-top: 16px;
     text-transform: capitalize;
+    box-sizing: border-box;
   }
 `;
 
@@ -81,6 +83,7 @@ export const GenreSelectButton = styled.button<CategoryButtonProps>`
   padding: 0px 3px 3px 3px;
   background-color: #fff0;
   text-shadow: 0px 0px 5px #b3c4f8;
+  box-sizing: border-box;
 
   :hover {
     color: #fff;
@@ -112,6 +115,7 @@ export const GamesOrderSelect = styled.select`
   background-color: #9f41d6b2;
   color: #fff;
   padding: 4px;
+  box-sizing: border-box;
   border-radius: 4px;
   outline: none;
 `;

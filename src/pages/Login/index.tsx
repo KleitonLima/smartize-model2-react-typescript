@@ -16,7 +16,7 @@ const Login = ({ setLogged }: LoginProps) => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    email === "admin@admin.com" && password === "admin" ? (setLogged(true), navigate("/"), toast.success("Login bem sucedido!")) : toast.error("Email ou senha inválido(s)!");
+    email === "admin" && password === "admin" ? (setLogged(true), navigate("/"), toast.success("Login bem sucedido!")) : toast.error("Email ou senha inválido(s)!");
   };
 
   return (
