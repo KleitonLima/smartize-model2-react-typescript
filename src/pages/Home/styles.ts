@@ -93,6 +93,7 @@ export const GenreSelectButton = styled.button<CategoryButtonProps>`
     active &&
     css`
       border-bottom: 4px solid #0511f2;
+      color: #fff;
     `}
 `;
 
