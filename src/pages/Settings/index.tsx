@@ -14,9 +14,9 @@ const Settings = ({ setLogged }: SettingsProps) => {
       <Menu path="settings" setLogged={setLogged} />
       <Styled.SettingsSelectContainer>
         <h1>configurações</h1>
-        <Styled.SettingsSelectButtonContainer>
-          <Styled.SettingsButtonContainerOutside>
-            <Styled.SettingsButtonContainerInside>
+        <Styled.SelectButtonContainer>
+          <Styled.ButtonContainerOutside>
+            <Styled.ButtonContainerInside>
               <div>
                 <MarketIcon />
               </div>
@@ -24,10 +24,10 @@ const Settings = ({ setLogged }: SettingsProps) => {
                 <h3>Gerenciar jogos</h3>
                 <p>Adicione, edite ou remova os jogos</p>
               </div>
-            </Styled.SettingsButtonContainerInside>
-          </Styled.SettingsButtonContainerOutside>
-          <Styled.SettingsButtonContainerOutside active={true}>
-            <Styled.SettingsButtonContainerInside active={true}>
+            </Styled.ButtonContainerInside>
+          </Styled.ButtonContainerOutside>
+          <Styled.ButtonContainerOutside active={true}>
+            <Styled.ButtonContainerInside active={true}>
               <div>
                 <InfoIcon />
               </div>
@@ -35,10 +35,10 @@ const Settings = ({ setLogged }: SettingsProps) => {
                 <h3>Gerenciar gêneros</h3>
                 <p>Adicione, edite ou remova os gêneros</p>
               </div>
-            </Styled.SettingsButtonContainerInside>
-          </Styled.SettingsButtonContainerOutside>
-          <Styled.SettingsButtonContainerOutside>
-            <Styled.SettingsButtonContainerInside>
+            </Styled.ButtonContainerInside>
+          </Styled.ButtonContainerOutside>
+          <Styled.ButtonContainerOutside>
+            <Styled.ButtonContainerInside>
               <div>
                 <UserIcon />
               </div>
@@ -46,29 +46,30 @@ const Settings = ({ setLogged }: SettingsProps) => {
                 <h3>Gerenciar usuários</h3>
                 <p>Adicione, edite ou remova os usuários</p>
               </div>
-            </Styled.SettingsButtonContainerInside>
-          </Styled.SettingsButtonContainerOutside>
-        </Styled.SettingsSelectButtonContainer>
+            </Styled.ButtonContainerInside>
+          </Styled.ButtonContainerOutside>
+        </Styled.SelectButtonContainer>
       </Styled.SettingsSelectContainer>
       <Styled.SettingsSelectedContainer>
         <h2>Gerenciando os jogos</h2>
-        <Styled.SettingsSelectedBarContainer>
-          <Styled.SettingsSelectedBar active={true}>Ação</Styled.SettingsSelectedBar>
-          <Styled.SettingsSelectedBar>Ação e aventura</Styled.SettingsSelectedBar>
-          <Styled.SettingsSelectedBar>Simulação</Styled.SettingsSelectedBar>
-        </Styled.SettingsSelectedBarContainer>
-        <Styled.SettingsSelectedContents>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-          <div>Card</div>
-        </Styled.SettingsSelectedContents>
-        <Styled.SettingsSelectedButtons>
+        <Styled.SelectedBarContainer>
+          <Styled.SelectedBar active={true}>Ação</Styled.SelectedBar>
+          <Styled.SelectedBar>Ação e aventura</Styled.SelectedBar>
+          <Styled.SelectedBar>Simulação</Styled.SelectedBar>
+        </Styled.SelectedBarContainer>
+        <Styled.SelectedContentsContainer>
+          <Styled.AddEntityCard>
+            <h2>+</h2>
+            <p>Adicionar jogo</p>
+          </Styled.AddEntityCard>
+          <Styled.EditEntityCard>Card</Styled.EditEntityCard>
+          <Styled.EditEntityCard>Card</Styled.EditEntityCard>
+          <Styled.EditEntityCard>Card</Styled.EditEntityCard>
+        </Styled.SelectedContentsContainer>
+        <Styled.SelectedButtons>
           <Button text="Cancelar" variant="cancel" size="small" />
           <Button text="Salvar alterações" size="small" />
-        </Styled.SettingsSelectedButtons>
+        </Styled.SelectedButtons>
       </Styled.SettingsSelectedContainer>
     </Styled.SettingsContainer>
   );
