@@ -15,7 +15,7 @@ export const SettingsContainer = styled.div`
 
 export const SettingsSelectContainer = styled.div`
   ${({ theme }) => css`
-    width: 100%;
+    width: 30%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -59,14 +59,13 @@ export const SettingsButtonContainerInside = styled.div<ActiveButtonProps>`
       color: ${theme.colors.textPrimaryColor};
       border-right: 3px solid ${theme.colors.textPrimaryColor};
       border-radius: 8px 0px 0px 8px;
-      border-style:;
     `}
   `}
 `;
 
 export const SettingsButtonContainerOutside = styled.div<ActiveButtonProps>`
   ${({ theme, active }) => css`
-    padding: 24px 0px;
+    padding: 16px 0px;
 
     :hover {
       transition: all, 0.3s;
@@ -81,5 +80,73 @@ export const SettingsButtonContainerOutside = styled.div<ActiveButtonProps>`
       color: ${theme.colors.textPrimaryColor};
       border-radius: 8px 0px 0px 8px;
     `}
+  `}
+`;
+
+export const SettingsSelectedContainer = styled.div`
+  ${({ theme }) => css`
+    width: calc(70% - 100px);
+    height: calc(100% - 68px);
+    display: flex;
+    flex-direction: column;
+    background-color: ${theme.colors.backgroundMenuColor};
+    margin: 68px 16px 0px 0px;
+    border-radius: 8px 8px 0px 0px;
+    padding: 16px;
+    box-sizing: border-box;
+    gap: 16px;
+
+    div {
+      display: flex;
+    }
+  `}
+`;
+
+export const SettingsSelectedBarContainer = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    border-bottom: 2px solid ${theme.colors.primaryColor};
+  `}
+`;
+
+export const SettingsSelectedBar = styled.div<ActiveButtonProps>`
+  ${({ theme, active }) => css`
+    border: none;
+    font-weight: bold;
+    color: ${theme.colors.textPrimaryColor};
+    margin-right: 8px;
+    padding: 0px 3px 3px 3px;
+    background-color: #fff0;
+    text-shadow: 0px 0px 5px ${theme.colors.primaryColor};
+    box-sizing: border-box;
+    cursor: pointer;
+
+    :hover {
+      color: ${theme.colors.primaryColor};
+    }
+
+    ${active &&
+    css`
+      border-bottom: 4px solid ${theme.colors.textPrimaryColor};
+      color: ${theme.colors.primaryColor};
+    `}
+  `}
+`;
+
+export const SettingsSelectedContents = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    width: 100%;
+    height: 100%;
+  `}
+`;
+
+export const SettingsSelectedButtons = styled.div`
+  ${({ theme }) => css`
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
   `}
 `;
