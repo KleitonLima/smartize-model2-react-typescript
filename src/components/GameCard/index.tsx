@@ -1,5 +1,5 @@
 import { Game } from "../../types/index.js";
-import * as styled from "./styles";
+import * as Styled from "./styles";
 
 interface GameCardProps {
   game: Game;
@@ -7,12 +7,12 @@ interface GameCardProps {
 
 const GameCard = ({ game }: GameCardProps) => {
   return (
-    <styled.CardContainer>
+    <Styled.CardContainer>
       <img alt={game.name} src={game.image} />
       <h3>{game.name}</h3>
       <h3>R${game.price}</h3>
       <p>{game.description}</p>
-    </styled.CardContainer>
+    </Styled.CardContainer>
   );
 };
 
