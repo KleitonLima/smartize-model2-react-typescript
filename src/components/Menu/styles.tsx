@@ -5,7 +5,7 @@ interface MenuItemProps {
 }
 
 export const MenuContainer = styled.div`
-  width: 100px;
+  max-width: 100px;
   background-color: #b3c4f8;
   border-radius: 0px 16px 16px 0px;
   display: flex;
