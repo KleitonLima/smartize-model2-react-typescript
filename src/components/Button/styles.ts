@@ -14,7 +14,6 @@ export const StyledButton = styled.button<StyledButtonProps>`
     border: 1px solid #000;
     cursor: pointer;
     color: ${theme.colors.textPrimaryColor};
-    font-weight: 600;
 
     :hover {
       transform: scale(1.05);

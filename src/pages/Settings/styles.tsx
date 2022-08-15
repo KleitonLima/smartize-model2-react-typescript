@@ -140,13 +140,15 @@ export const SelectedContentsContainer = styled.div`
     width: 100%;
     height: 100%;
     flex-wrap: wrap;
+    overflow-y: scroll;
+    gap: 16px;
   `}
 `;
 
 export const AddEntityCard = styled.div`
   ${({ theme }) => css`
-    width: 150px;
-    height: 200px;
+    width: 200px;
+    height: 250px;
     border: 2px dashed ${theme.colors.primaryColor};
     border-radius: 4px;
     display: flex;
@@ -157,10 +159,6 @@ export const AddEntityCard = styled.div`
     color: ${theme.colors.primaryColor};
     text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
   `}
-`;
-
-export const EditEntityCard = styled.div`
-  ${({ theme }) => css``}
 `;
 
 export const SelectedButtons = styled.div`
