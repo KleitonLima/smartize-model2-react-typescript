@@ -31,7 +31,7 @@ export const SettingsSelectContainer = styled.div`
   `}
 `;
 
-export const SettingsSelectButtonContainer = styled.div<ActiveButtonProps>`
+export const SelectButtonContainer = styled.div<ActiveButtonProps>`
   ${({ theme, active }) => css`
     width: 100%;
     height: 100%;
@@ -46,7 +46,7 @@ export const SettingsSelectButtonContainer = styled.div<ActiveButtonProps>`
   `}
 `;
 
-export const SettingsButtonContainerInside = styled.div<ActiveButtonProps>`
+export const ButtonContainerInside = styled.div<ActiveButtonProps>`
   ${({ theme, active }) => css`
     display: flex;
     justify-content: center;
@@ -63,7 +63,7 @@ export const SettingsButtonContainerInside = styled.div<ActiveButtonProps>`
   `}
 `;
 
-export const SettingsButtonContainerOutside = styled.div<ActiveButtonProps>`
+export const ButtonContainerOutside = styled.div<ActiveButtonProps>`
   ${({ theme, active }) => css`
     padding: 16px 0px;
 
@@ -102,14 +102,14 @@ export const SettingsSelectedContainer = styled.div`
   `}
 `;
 
-export const SettingsSelectedBarContainer = styled.div`
+export const SelectedBarContainer = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    border-bottom: 2px solid ${theme.colors.primaryColor};
+    border-bottom: 1px solid ${theme.colors.primaryColor};
   `}
 `;
 
-export const SettingsSelectedBar = styled.div<ActiveButtonProps>`
+export const SelectedBar = styled.div<ActiveButtonProps>`
   ${({ theme, active }) => css`
     border: none;
     font-weight: bold;
@@ -129,19 +129,41 @@ export const SettingsSelectedBar = styled.div<ActiveButtonProps>`
     css`
       border-bottom: 4px solid ${theme.colors.textPrimaryColor};
       color: ${theme.colors.primaryColor};
+      text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
     `}
   `}
 `;
 
-export const SettingsSelectedContents = styled.div`
+export const SelectedContentsContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     width: 100%;
     height: 100%;
+    flex-wrap: wrap;
   `}
 `;
 
-export const SettingsSelectedButtons = styled.div`
+export const AddEntityCard = styled.div`
+  ${({ theme }) => css`
+    width: 150px;
+    height: 200px;
+    border: 2px dashed ${theme.colors.primaryColor};
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: ${theme.colors.primaryColor};
+    text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+  `}
+`;
+
+export const EditEntityCard = styled.div`
+  ${({ theme }) => css``}
+`;
+
+export const SelectedButtons = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: 100px;
