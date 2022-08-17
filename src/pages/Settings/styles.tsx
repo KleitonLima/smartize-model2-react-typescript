@@ -163,6 +163,7 @@ export const AddEntityCard = styled.div`
       transform: scale(0.99);
       background-color: ${theme.colors.backgroundColor};
       color: ${theme.colors.textPrimaryColor};
+      transition: all 0.2s;
     }
   `}
 `;
