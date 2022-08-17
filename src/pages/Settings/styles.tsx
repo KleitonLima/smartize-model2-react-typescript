@@ -158,6 +158,12 @@ export const AddEntityCard = styled.div`
     cursor: pointer;
     color: ${theme.colors.primaryColor};
     text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+
+    :hover {
+      transform: scale(0.99);
+      background-color: ${theme.colors.backgroundColor};
+      color: ${theme.colors.textPrimaryColor};
+    }
   `}
 `;
 
