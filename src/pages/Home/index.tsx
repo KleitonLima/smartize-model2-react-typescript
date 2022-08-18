@@ -7,13 +7,9 @@ import { SearchIcon } from "../../assets/icons";
 import { Game, Genre } from "../../types";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 
-interface HomeProps {
-  setLogged: Dispatch<SetStateAction<boolean>>;
-}
-
-const Home = ({ setLogged }: HomeProps) => {
+const Home = () => {
   const [selectedGenre, setSelectedGenre] = useState<Genre>(mockedGenres[0]);
   const filteredGames: Game[] = mockedGames.filter((elem) => elem.genreId === selectedGenre.id);
   const actualDate = DateTime.now();
@@ -21,7 +17,7 @@ const Home = ({ setLogged }: HomeProps) => {
 
   return (
     <Styled.HomeContainer>
-      <Menu setLogged={setLogged} path="home" />
+      <Menu path="home" />
       <Styled.HomeContentContainer>
         <Styled.HomeContentHeader>
           <Styled.TitleContainer>
