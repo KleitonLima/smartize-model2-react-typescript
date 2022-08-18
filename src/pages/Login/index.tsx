@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 export interface LoginProps {
   setLogged: Dispatch<SetStateAction<boolean>>;
@@ -16,7 +17,31 @@ const Login = ({ setLogged }: LoginProps) => {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    email === "admin" && password === "admin" ? (setLogged(true), navigate("/"), toast.success("Login bem sucedido!")) : toast.error("Email ou senha inválido(s)!");
+    if (email !== "" && password !== "") {
+      axios
+        .post("https://smartize-store-back-m4-production.up.railway.app/auth/login", { email, password })
+        .then((res) => {
+          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("user", JSON.stringify(res.data.user));
+          setLogged(true);
+          navigate("/");
+          toast.success("Login bem sucedido!");
+        })
+        .catch(() => {
+          toast.error("Email ou senha inválido(s)!");
+        });
+    } else {
+      toast.error("Preencha o email e senha!");
+    }
+
+    // Com ternário
+    // email !== "" && password !== ""
+    //   ? (axios.post("https://smartize-store-back-m4-production.up.railway.app/auth/login",
+    //     { email, password }),
+    //     setLogged(true),
+    //     navigate("/"),
+    //     toast.success("Login bem sucedido!"))
+    //   : toast.error("Email ou senha inválido(s)!");
   };
 
   return (
