@@ -3,6 +3,7 @@ import logo from "../../assets/imgs/logo-smartize.png";
 import { HomeIcon, LogoutIcon, SettingsIcon } from "../../assets/icons";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/auth";
+import toast from "react-hot-toast";
 
 interface MenuProps {
   path: "home" | "settings";
@@ -28,7 +29,12 @@ const Menu = ({ path }: MenuProps) => {
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem>
-        <Styled.MenuButton onClick={logout}>
+        <Styled.MenuButton
+          onClick={() => {
+            logout();
+            toast.success("Login bem sucedido!");
+          }}
+        >
           <LogoutIcon />
         </Styled.MenuButton>
       </Styled.MenuItem>
