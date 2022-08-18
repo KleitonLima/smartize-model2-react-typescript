@@ -2,30 +2,22 @@ import Input from "../../components/Input";
 import * as Styled from "./styles";
 import logo from "../../assets/imgs/logo-smartize.png";
 import Button from "../../components/Button";
-import { Dispatch, SetStateAction, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { useAuth } from "../../contexts/auth";
 
-export interface LoginProps {
-  setLogged: Dispatch<SetStateAction<boolean>>;
-}
-
-const Login = ({ setLogged }: LoginProps) => {
+const Login = () => {
+  const { login } = useAuth();
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const navigate = useNavigate();
 
   const handleLogin = () => {
     if (email !== "" && password !== "") {
       axios
         .post("https://smartize-store-back-m4-production.up.railway.app/auth/login", { email, password })
         .then((res) => {
-          localStorage.setItem("token", res.data.token);
-          localStorage.setItem("user", JSON.stringify(res.data.user));
-          setLogged(true);
-          navigate("/");
-          toast.success("Login bem sucedido!");
+          login({ token: res.data.token, user: res.data.user });
         })
         .catch(() => {
           toast.error("Email ou senha inválido(s)!");
