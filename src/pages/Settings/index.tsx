@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import Menu from "../../components/Menu";
 import * as Styled from "./styles";
 import { InfoIcon, MarketIcon, UserIcon } from "../../assets/icons/index";
@@ -6,14 +5,10 @@ import Button from "../../components/Button";
 import SettingsGameCard from "../../components/SettingsGameCard";
 import { mockedGames } from "../../mocks";
 
-interface SettingsProps {
-  setLogged: Dispatch<SetStateAction<boolean>>;
-}
-
-const Settings = ({ setLogged }: SettingsProps) => {
+const Settings = () => {
   return (
     <Styled.SettingsContainer>
-      <Menu path="settings" setLogged={setLogged} />
+      <Menu path="settings" />
       <Styled.SettingsSelectContainer>
         <h1>configurações</h1>
         <Styled.SelectButtonContainer>
