@@ -28,7 +28,7 @@ const Menu = ({ path, setLogged }: MenuProps) => {
         </Styled.MenuItem>
       </nav>
       <Styled.MenuItem>
-        <Styled.MenuButton onClick={() => (navigate("/login"), setLogged(false))}>
+        <Styled.MenuButton onClick={() => (navigate("/login"), setLogged(false), localStorage.clear())}>
           <LogoutIcon />
         </Styled.MenuButton>
       </Styled.MenuItem>
