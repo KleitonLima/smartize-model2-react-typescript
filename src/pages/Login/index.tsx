@@ -44,15 +44,6 @@ const Login = () => {
       .catch(() => {
         toast.error("Email ou senha inválido(s)!");
       });
-
-    // Com ternário
-    // email !== "" && password !== ""
-    //   ? (axios.post("https://smartize-store-back-m4-production.up.railway.app/auth/login",
-    //     { email, password }),
-    //     setLogged(true),
-    //     navigate("/"),
-    //     toast.success("Login bem sucedido!"))
-    //   : toast.error("Email ou senha inválido(s)!");
   };
 
   return (
