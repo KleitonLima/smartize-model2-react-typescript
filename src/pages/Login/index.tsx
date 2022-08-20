@@ -1,30 +1,49 @@
-import Input from "../../components/Input";
 import * as Styled from "./styles";
 import logo from "../../assets/imgs/logo-smartize.png";
 import Button from "../../components/Button";
-import { useState } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useAuth } from "../../contexts/auth";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { StyledInput } from "../../components/Input/styles";
+
+interface LoginData {
+  email: string;
+  password: string;
+}
+
+const loginSchema = yup.object().shape({
+  email: yup.string().email("Formato de e-mail inválido!").required("E-mail é obrigatório!"),
+  password: yup
+    .string()
+    .min(8, "A senha deve conter no mínimo 8 caracteres!")
+    .matches(
+      /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/,
+      "A senha deve conter pelo menos, uma letra maiúscula, uma letra minúscula, um número e um desses caracteres especiais: $*&@#"
+    )
+    .required("Senha é obrigatória"),
+});
 
 const Login = () => {
   const { login } = useAuth();
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
 
-  const handleLogin = () => {
-    if (email !== "" && password !== "") {
-      axios
-        .post("https://smartize-store-back-m4-production.up.railway.app/auth/login", { email, password })
-        .then((res) => {
-          login({ token: res.data.token, user: res.data.user });
-        })
-        .catch(() => {
-          toast.error("Email ou senha inválido(s)!");
-        });
-    } else {
-      toast.error("Preencha o email e senha!");
-    }
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
+
+  const handleLogin = ({ email, password }: LoginData) => {
+    axios
+      .post("https://smartize-store-back-m4-production.up.railway.app/auth/login", { email, password })
+      .then((res) => {
+        login({ token: res.data.token, user: res.data.user });
+      })
+      .catch(() => {
+        toast.error("Email ou senha inválido(s)!");
+      });
 
     // Com ternário
     // email !== "" && password !== ""
@@ -38,16 +57,17 @@ const Login = () => {
 
   return (
     <Styled.LoginPageContainer>
-      <Styled.LoginFormContainer>
+      <Styled.LoginFormContainer onSubmit={handleSubmit(handleLogin)}>
         <div>
           <img src={logo} width="100px" alt="" />
           <h1>
             smartize <br /> store
           </h1>
         </div>
-        <Input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Digite seu email..." background="secondary" />
-        <Input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="Digite sua senha..." background="secondary" />
-        <Button text="Login" onClick={handleLogin} />
+        <StyledInput type="email" {...register("email")} placeholder="Digite seu email..." background="secondary" />
+        <StyledInput type="password" {...register("password")} placeholder="Digite sua senha..." background="secondary" />
+        <Styled.ErrorMessage>{errors.email?.message || errors.password?.message}</Styled.ErrorMessage>
+        <Button text="Login" type="submit" />
       </Styled.LoginFormContainer>
     </Styled.LoginPageContainer>
   );
