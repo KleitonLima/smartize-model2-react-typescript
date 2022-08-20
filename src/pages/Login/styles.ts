@@ -13,7 +13,7 @@ export const LoginPageContainer = styled.div`
   `}
 `;
 
-export const LoginFormContainer = styled.div`
+export const LoginFormContainer = styled.form`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
@@ -36,5 +36,12 @@ export const LoginFormContainer = styled.div`
         text-align: center;
       }
     }
+  `}
+`;
+
+export const ErrorMessage = styled.p`
+  ${({ theme }) => css`
+    color: #ff0000;
+    text-align: center;
   `}
 `;
