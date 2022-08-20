@@ -32,7 +32,7 @@ const Menu = ({ path }: MenuProps) => {
         <Styled.MenuButton
           onClick={() => {
             logout();
-            toast.success("Login bem sucedido!");
+            toast.success("Logout bem sucedido!");
           }}
         >
           <LogoutIcon />
