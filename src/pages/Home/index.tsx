@@ -38,7 +38,7 @@ const Home = () => {
             <Styled.GenreSelectButton>Todos</Styled.GenreSelectButton>
             {mockedGenres.map((elem) => {
               return (
-                <Styled.GenreSelectButton active={elem.name === selectedGenre.name} onClick={() => setSelectedGenre(elem)}>
+                <Styled.GenreSelectButton key={elem.name.toString()} active={elem.name === selectedGenre.name} onClick={() => setSelectedGenre(elem)}>
                   {elem.name}
                 </Styled.GenreSelectButton>
               );
