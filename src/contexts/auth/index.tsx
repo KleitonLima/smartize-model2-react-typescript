@@ -1,7 +1,7 @@
-import axios from "axios";
 import { createContext, useContext, ReactNode, useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { api } from "../../services";
 import { User } from "../../types";
 
 interface AuthProviderData {
@@ -48,8 +48,8 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       },
     };
 
-    axios
-      .get(`https://smartize-store-back-m4-production.up.railway.app/users/${user.id}`, headers)
+    api
+      .get(`/users/${user.id}`, headers)
       .then(() => {
         setLogged(true);
         navigate("/");

@@ -2,12 +2,12 @@ import * as Styled from "./styles";
 import logo from "../../assets/imgs/logo-smartize.png";
 import Button from "../../components/Button";
 import toast from "react-hot-toast";
-import axios from "axios";
 import { useAuth } from "../../contexts/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { StyledInput } from "../../components/Input/styles";
+import { api } from "../../services";
 
 interface LoginData {
   email: string;
@@ -36,8 +36,8 @@ const Login = () => {
   } = useForm<LoginData>({ resolver: yupResolver(loginSchema) });
 
   const handleLogin = ({ email, password }: LoginData) => {
-    axios
-      .post("https://smartize-store-back-m4-production.up.railway.app/auth/login", { email, password })
+    api
+      .post("/auth/login", { email, password })
       .then((res) => {
         login({ token: res.data.token, user: res.data.user });
       })
