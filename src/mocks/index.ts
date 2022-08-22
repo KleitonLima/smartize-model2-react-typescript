@@ -70,19 +70,19 @@ export const mockedBags: T.Bag[] = [
 
 export const mockedGenres: T.Genre[] = [
   {
-    id: "ce315e82-57d7-4a94-93f3-b2d70a231e5e",
+    id: "dd5e690e-0c70-4475-8de7-af27d962a335",
     name: "Ação",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    id: "1148dc78-64f4-4bab-b827-96a9b48d5ae2",
+    id: "e1322c64-8815-4d7c-8284-f6930a605dd1",
     name: "Ação e aventura",
     createdAt: new Date(),
     updatedAt: new Date(),
   },
   {
-    id: "bc2ab0c4-28ea-4975-8ec3-4ef315df1a43",
+    id: "fd418b99-b09b-4962-9f08-cdc23b7bc867",
     name: "Simulação",
     createdAt: new Date(),
     updatedAt: new Date(),
