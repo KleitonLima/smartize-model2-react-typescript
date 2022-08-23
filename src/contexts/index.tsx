@@ -12,11 +12,11 @@ interface ProvidersProps {
 const Providers = ({ children }: ProvidersProps) => {
   return (
     <BrowserRouter>
-      <AuthProvider>
-        <GamesProvider>
-          <ThemeProvider theme={theme}>{children}</ThemeProvider>
-        </GamesProvider>
-      </AuthProvider>
+      <ThemeProvider theme={theme}>
+        <AuthProvider>
+          <GamesProvider>{children}</GamesProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 };
