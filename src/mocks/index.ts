@@ -1,40 +1,4 @@
 import * as T from "../types/index.js";
-import minecraft from "../assets/imgs/logo-minecraft.png";
-import gta from "../assets/imgs/logo-gta.png";
-import vector from "../assets/imgs/logo-vector.png";
-
-export const mockedGames: T.Game[] = [
-  {
-    id: "f4d8339c-ffe1-45d0-92f1-14f2968bdd7f",
-    name: "Minecraft",
-    description: "Minecraft é um jogo eletrônico, que tem por objetivo básico construir e quebrar blocos.",
-    price: 24.99,
-    image: minecraft,
-    genreId: "bc2ab0c4-28ea-4975-8ec3-4ef315df1a43",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: "b2083db3-19ed-4406-a419-ee1d5b5b2949",
-    name: "GTA: San Andreas",
-    description: "Grand Theft Auto: San Andreas é um jogo eletrônico de ação-aventura com elementos de RPG e stealth.",
-    price: 14.99,
-    image: gta,
-    genreId: "1148dc78-64f4-4bab-b827-96a9b48d5ae2",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-  {
-    id: "c8b63a2a-7b92-4dcd-bcde-6c9091ef526f",
-    name: "Vector Full",
-    description: "Vector é um jogo estilo arcade vibrante que te põe no papel de um corredor que não quer ser capturado pelo sistema.",
-    price: 1.49,
-    image: vector,
-    genreId: "ce315e82-57d7-4a94-93f3-b2d70a231e5e",
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  },
-];
 
 export const mockedUsers: T.User[] = [
   {
