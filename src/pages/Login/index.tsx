@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledInput } from "../../components/Input/styles";
+import { StyledInput } from "../../assets/styles/globalStyles";
 import { api } from "../../services";
 
 interface LoginData {
