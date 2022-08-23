@@ -3,9 +3,11 @@ import * as Styled from "./styles";
 import { InfoIcon, MarketIcon, UserIcon } from "../../assets/icons/index";
 import Button from "../../components/Button";
 import SettingsGameCard from "../../components/SettingsGameCard";
-import { mockedGames } from "../../mocks";
+import { useGames } from "../../contexts/games";
 
 const Settings = () => {
+const {games} = useGames()
+
   return (
     <Styled.SettingsContainer>
       <Menu path="settings" />
@@ -59,7 +61,7 @@ const Settings = () => {
             <h2>+</h2>
             <p>Adicionar jogo</p>
           </Styled.AddEntityCard>
-          {mockedGames.map((elem) => (
+          {games.map((elem) => (
             <SettingsGameCard game={elem} key={elem.id} />
           ))}
         </Styled.SelectedContentsContainer>
