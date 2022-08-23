@@ -2,16 +2,17 @@ import OrderDetails from "../../components/OrderDetails";
 import GamesList from "../../components/GamesList";
 import Menu from "../../components/Menu";
 import { mockedGenres } from "../../mocks";
-import { mockedGames } from "../../mocks";
 import { SearchIcon } from "../../assets/icons";
 import { Game, Genre } from "../../types";
 import * as Styled from "./styles";
 import { DateTime } from "luxon";
 import { useState } from "react";
+import { useGames } from "../../contexts/games";
 
 const Home = () => {
+  const { games } = useGames();
   const [selectedGenre, setSelectedGenre] = useState<Genre>(mockedGenres[0]);
-  const filteredGames: Game[] = mockedGames.filter((elem) => elem.genreId === selectedGenre.id);
+  const filteredGames: Game[] = games.filter((elem) => elem.genreId === selectedGenre.id);
   const actualDate = DateTime.now();
   const formatedDate = `${actualDate.weekdayShort}, ${actualDate.day} ${actualDate.monthLong} ${actualDate.year}`;
 
