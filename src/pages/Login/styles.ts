@@ -38,10 +38,3 @@ export const LoginFormContainer = styled.form`
     }
   `}
 `;
-
-export const ErrorMessage = styled.p`
-  ${({ theme }) => css`
-    color: #ff0000;
-    text-align: center;
-  `}
-`;
