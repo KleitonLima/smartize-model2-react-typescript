@@ -6,7 +6,7 @@ import { useAuth } from "../../contexts/auth";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { StyledInput } from "../../assets/styles/globalStyles";
+import { ErrorMessage, StyledInput } from "../../assets/styles/globalStyles";
 import { api } from "../../services";
 
 interface LoginData {
@@ -57,7 +57,7 @@ const Login = () => {
         </div>
         <StyledInput type="email" {...register("email")} placeholder="Digite seu email..." background="secondary" />
         <StyledInput type="password" {...register("password")} placeholder="Digite sua senha..." background="secondary" />
-        <Styled.ErrorMessage>{errors.email?.message || errors.password?.message}</Styled.ErrorMessage>
+        <ErrorMessage>{errors.email?.message || errors.password?.message}</ErrorMessage>
         <Button text="Login" type="submit" />
       </Styled.LoginFormContainer>
     </Styled.LoginPageContainer>
