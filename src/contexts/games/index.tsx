@@ -9,6 +9,7 @@ interface GamesProviderProps {
 
 interface GamesProviderData {
   games: Game[];
+  handleGetGames: () => void;
 }
 
 const GamesContext = createContext<GamesProviderData>({} as GamesProviderData);
@@ -31,7 +32,7 @@ export const GamesProvider = ({ children }: GamesProviderProps) => {
   useEffect(() => {
     if (logged) handleGetGames();
   }, [logged]);
-  return <GamesContext.Provider value={{ games }}>{children}</GamesContext.Provider>;
+  return <GamesContext.Provider value={{ games, handleGetGames }}>{children}</GamesContext.Provider>;
 };
 
 export const useGames = () => useContext(GamesContext);

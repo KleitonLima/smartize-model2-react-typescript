@@ -3,9 +3,17 @@ import * as Styled from "./styles";
 import { InfoIcon, MarketIcon, UserIcon } from "../../assets/icons/index";
 import Button from "../../components/Button";
 import SettingsGameCard from "../../components/SettingsGameCard";
-import { mockedGames } from "../../mocks";
+import { useGames } from "../../contexts/games";
+import { useState } from "react";
+import GameModal from "../../components/GameModal";
 
 const Settings = () => {
+  const { games } = useGames();
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
+
   return (
     <Styled.SettingsContainer>
       <Menu path="settings" />
@@ -55,11 +63,11 @@ const Settings = () => {
           <Styled.SelectedBar>Simulação</Styled.SelectedBar>
         </Styled.SelectedBarContainer>
         <Styled.SelectedContentsContainer>
-          <Styled.AddEntityCard>
+          <Styled.AddEntityCard onClick={handleOpenModal}>
             <h2>+</h2>
             <p>Adicionar jogo</p>
           </Styled.AddEntityCard>
-          {mockedGames.map((elem) => (
+          {games.map((elem) => (
             <SettingsGameCard game={elem} key={elem.id} />
           ))}
         </Styled.SelectedContentsContainer>
@@ -68,6 +76,7 @@ const Settings = () => {
           <Button text="Salvar alterações" size="small" />
         </Styled.SelectedButtons>
       </Styled.SettingsSelectedContainer>
+      {openModal && <GameModal handleOpenModal={handleOpenModal} />}
     </Styled.SettingsContainer>
   );
 };

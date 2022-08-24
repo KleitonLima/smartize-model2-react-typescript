@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 
 interface StyledButtonProps {
   variant?: "disable" | "cancel" | false;
-  size?: "small" | "large" | false;
+  size?: "tiny" | "small" | "large" | false;
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
@@ -33,6 +33,11 @@ export const StyledButton = styled.button<StyledButtonProps>`
     css`
       color: ${theme.colors.secondaryColor};
       background-color: red;
+    `}
+
+    ${size === "tiny" &&
+    css`
+      width: 80px;
     `}
 
     ${size === "small" &&
