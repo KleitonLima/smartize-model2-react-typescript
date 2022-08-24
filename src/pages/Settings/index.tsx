@@ -4,9 +4,15 @@ import { InfoIcon, MarketIcon, UserIcon } from "../../assets/icons/index";
 import Button from "../../components/Button";
 import SettingsGameCard from "../../components/SettingsGameCard";
 import { useGames } from "../../contexts/games";
+import { useState } from "react";
+import GameModal from "../../components/GameModal";
 
 const Settings = () => {
-const {games} = useGames()
+  const { games } = useGames();
+  const [openModal, setOpenModal] = useState<boolean>(false);
+  const handleOpenModal = () => {
+    setOpenModal(!openModal);
+  };
 
   return (
     <Styled.SettingsContainer>
@@ -57,7 +63,7 @@ const {games} = useGames()
           <Styled.SelectedBar>Simulação</Styled.SelectedBar>
         </Styled.SelectedBarContainer>
         <Styled.SelectedContentsContainer>
-          <Styled.AddEntityCard>
+          <Styled.AddEntityCard onClick={handleOpenModal}>
             <h2>+</h2>
             <p>Adicionar jogo</p>
           </Styled.AddEntityCard>
@@ -70,6 +76,7 @@ const {games} = useGames()
           <Button text="Salvar alterações" size="small" />
         </Styled.SelectedButtons>
       </Styled.SettingsSelectedContainer>
+      {openModal && <GameModal handleOpenModal={handleOpenModal} />}
     </Styled.SettingsContainer>
   );
 };
