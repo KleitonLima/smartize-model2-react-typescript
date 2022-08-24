@@ -5,6 +5,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from "../../services";
+import { useState } from "react";
+import { mockedGenres } from "../../mocks";
+import toast from "react-hot-toast";
+import { useGames } from "../../contexts/games";
 
 interface GameModalProps {
   handleOpenModal: () => void;
@@ -15,6 +19,7 @@ interface NewProductData {
   image: string;
   price: number;
   description: string;
+  genreId: string;
 }
 
 const newGameSchema = yup.object().shape({
@@ -25,6 +30,8 @@ const newGameSchema = yup.object().shape({
 });
 
 const GameModal = ({ handleOpenModal }: GameModalProps) => {
+  const { handleGetGames } = useGames();
+  const [genreId, setGenreId] = useState<string>("");
   const {
     handleSubmit,
     register,
@@ -32,7 +39,20 @@ const GameModal = ({ handleOpenModal }: GameModalProps) => {
   } = useForm<NewProductData>({ resolver: yupResolver(newGameSchema) });
 
   const handleNewGame = (data: NewProductData) => {
-    api.post("games", data).then((res) => {});
+    data.genreId = genreId;
+
+    const token = localStorage.getItem("token");
+    const headers = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    api.post("/games", data, headers).then((res) => {
+      toast.success("Jogo cadastrado com sucesso!");
+      handleGetGames();
+      handleOpenModal();
+    });
   };
 
   return (
@@ -43,11 +63,16 @@ const GameModal = ({ handleOpenModal }: GameModalProps) => {
         <StyledInput placeholder="Imagem" {...register("image")} type="url" />
         <StyledInput placeholder="Preço" {...register("price")} type="number" />
         <StyledInput placeholder="Descrição" {...register("description")} />
-        <select value="Gênero">
-          <option value="Ação">Ação</option>
-          <option value="Ação e aventura">Ação e aventura</option>
-          <option value="Simulação">Simulação</option>
-        </select>
+        <Styled.Select value={genreId} onChange={(e) => setGenreId(e.target.value)}>
+          <option hidden selected>
+            Selecione o gênero
+          </option>
+          {mockedGenres.map((elem) => (
+            <option key={elem.id} value={elem.id}>
+              {elem.name}
+            </option>
+          ))}
+        </Styled.Select>
         {<ErrorMessage>{errors.name?.message || errors.image?.message || errors.price?.message || errors.description?.message}</ErrorMessage>}
         <div>
           <Button text="Cancelar" variant="cancel" size="tiny" onClick={handleOpenModal} />
