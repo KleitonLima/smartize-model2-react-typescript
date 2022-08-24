@@ -48,11 +48,16 @@ const GameModal = ({ handleOpenModal }: GameModalProps) => {
       },
     };
 
-    api.post("/games", data, headers).then((res) => {
-      toast.success("Jogo cadastrado com sucesso!");
-      handleGetGames();
-      handleOpenModal();
-    });
+    api
+      .post("/games", data, headers)
+      .then(() => {
+        toast.success("Jogo cadastrado com sucesso!");
+        handleGetGames();
+        handleOpenModal();
+      })
+      .catch(() => {
+        toast.error("Selecione uma categoria...");
+      });
   };
 
   return (
@@ -61,10 +66,11 @@ const GameModal = ({ handleOpenModal }: GameModalProps) => {
         <h2>Cadastrar jogo</h2>
         <StyledInput placeholder="Nome" {...register("name")} />
         <StyledInput placeholder="Imagem" {...register("image")} type="url" />
-        <StyledInput placeholder="Preço" {...register("price")} type="number" />
+        <StyledInput placeholder="Preço" {...register("price")} type="number" step="0.01" />
         <StyledInput placeholder="Descrição" {...register("description")} />
         {/* Se deixado vazio o select não envia aviso de erro e faz a requisição com ele vazio,
-        gerando erro 400 dizendo que o genreId precisa ser um UUID */}
+        gerando erro 400 dizendo que o genreId precisa ser um UUID.
+        Temporariamente resolvido com .catch na requisição*/}
         <Styled.Select value={genreId} onChange={(e) => setGenreId(e.target.value)}>
           <option hidden selected>
             Selecione o gênero
