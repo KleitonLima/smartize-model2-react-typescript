@@ -145,7 +145,7 @@ export const SelectedContentsContainer = styled.div`
   `}
 `;
 
-export const AddEntityCard = styled.div`
+export const AddEntityCard = styled.button`
   ${({ theme }) => css`
     width: 200px;
     height: 250px;
