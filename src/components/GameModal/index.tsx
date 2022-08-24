@@ -63,6 +63,8 @@ const GameModal = ({ handleOpenModal }: GameModalProps) => {
         <StyledInput placeholder="Imagem" {...register("image")} type="url" />
         <StyledInput placeholder="Preço" {...register("price")} type="number" />
         <StyledInput placeholder="Descrição" {...register("description")} />
+        {/* Se deixado vazio o select não envia aviso de erro e faz a requisição com ele vazio,
+        gerando erro 400 dizendo que o genreId precisa ser um UUID */}
         <Styled.Select value={genreId} onChange={(e) => setGenreId(e.target.value)}>
           <option hidden selected>
             Selecione o gênero
