@@ -31,7 +31,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
     ${variant === "cancel" &&
     css`
-      color: ${theme.colors.secondaryColor};
+      color: ${theme.colors.textSecondaryColor};
       background-color: red;
     `}
 
