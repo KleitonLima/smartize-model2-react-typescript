@@ -17,7 +17,7 @@ export const CardContainer = styled.div<CardContainerProps>`
     gap: 6px;
     border-radius: 16px;
     font-family: ${theme.constants.bodyFontFamily};
-    color: ${theme.colors.secondaryColor};
+    color: ${theme.colors.textSecondaryColor};
     padding: 8px;
     position: relative;
     padding-top: 24px;

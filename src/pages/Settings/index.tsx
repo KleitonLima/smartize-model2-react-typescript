@@ -6,11 +6,13 @@ import SettingsGameCard from "../../components/SettingsGameCard";
 import { useGames } from "../../contexts/games";
 import { useState } from "react";
 import GameModal from "../../components/GameModal";
+import { Game } from "../../types";
 
 const Settings = () => {
   const { games } = useGames();
   const [openModal, setOpenModal] = useState<boolean>(false);
-  const handleOpenModal = () => {
+  const [game, setGame] = useState<Game | undefined>(undefined);
+  const handleShowModal = () => {
     setOpenModal(!openModal);
   };
 
@@ -63,12 +65,12 @@ const Settings = () => {
           <Styled.SelectedBar>Simulação</Styled.SelectedBar>
         </Styled.SelectedBarContainer>
         <Styled.SelectedContentsContainer>
-          <Styled.AddEntityCard onClick={handleOpenModal}>
+          <Styled.AddEntityCard onClick={handleShowModal}>
             <h2>+</h2>
             <p>Adicionar jogo</p>
           </Styled.AddEntityCard>
           {games.map((elem) => (
-            <SettingsGameCard game={elem} key={elem.id} />
+            <SettingsGameCard setGame={setGame} handleShowModal={handleShowModal} game={elem} key={elem.id} />
           ))}
         </Styled.SelectedContentsContainer>
         <Styled.SelectedButtons>
@@ -76,7 +78,7 @@ const Settings = () => {
           <Button text="Salvar alterações" size="small" />
         </Styled.SelectedButtons>
       </Styled.SettingsSelectedContainer>
-      {openModal && <GameModal handleOpenModal={handleOpenModal} />}
+      {openModal && <GameModal game={game} handleOpenModal={handleShowModal} />}
     </Styled.SettingsContainer>
   );
 };
