@@ -6,11 +6,15 @@ import SettingsGameCard from "../../components/SettingsGameCard";
 import { useGames } from "../../contexts/games";
 import { useState } from "react";
 import GameModal from "../../components/GameModal";
-import { Game } from "../../types";
+import { Game, Genre } from "../../types";
 import DeleteCardModal from "../../components/DeleteCardModal";
+import { useGenres } from "../../contexts/genres";
 
 const Settings = () => {
   const { games } = useGames();
+  const { genres } = useGenres();
+  const [selectedGenreSettings, setSelectedGenre] = useState<Genre>(genres[0] || ({} as Genre));
+  const filteredGamesSettings: Game[] = games.filter((elem) => elem.genreId === selectedGenreSettings.id);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
   const [game, setGame] = useState<Game | undefined>(undefined);
@@ -66,16 +70,21 @@ const Settings = () => {
       <Styled.SettingsSelectedContainer>
         <h2>Gerenciando os jogos</h2>
         <Styled.SelectedBarContainer>
-          <Styled.SelectedBar active={true}>Ação</Styled.SelectedBar>
-          <Styled.SelectedBar>Ação e aventura</Styled.SelectedBar>
-          <Styled.SelectedBar>Simulação</Styled.SelectedBar>
+          <Styled.SelectedBar>Todos</Styled.SelectedBar>
+          {genres.map((elem) => {
+            return (
+              <Styled.SelectedBar key={elem.name.toString()} active={elem.name === selectedGenreSettings.name} onClick={() => setSelectedGenre(elem)}>
+                {elem.name}
+              </Styled.SelectedBar>
+            );
+          })}
         </Styled.SelectedBarContainer>
         <Styled.SelectedContentsContainer>
           <Styled.AddEntityCard onClick={handleShowModal}>
             <h2>+</h2>
             <p>Adicionar jogo</p>
           </Styled.AddEntityCard>
-          {games.map((elem) => (
+          {filteredGamesSettings.map((elem) => (
             <SettingsGameCard setGame={setGame} handleShowDeleteModal={handleShowDeleteModal} handleShowModal={handleShowModal} game={elem} key={elem.id} />
           ))}
         </Styled.SelectedContentsContainer>
