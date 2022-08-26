@@ -2,18 +2,15 @@ import * as Styled from "./style";
 import { Game } from "../../types";
 import { EditIcon, TrashIcon } from "../../assets/icons/index";
 import { Dispatch, SetStateAction } from "react";
-import { api } from "../../services";
 
 interface SettingsGameCardProps {
   game: Game;
   handleShowModal: () => void;
+  handleShowDeleteModal: () => void;
   setGame: Dispatch<SetStateAction<Game | undefined>>;
 }
 
-const SettingsGameCard = ({ game, handleShowModal, setGame }: SettingsGameCardProps) => {
-  const handleDeleteGame = () => {
-    api.delete(`/games/${game.id}`);
-  };
+const SettingsGameCard = ({ game, handleShowModal, setGame, handleShowDeleteModal }: SettingsGameCardProps) => {
   return (
     <Styled.EditEntityCard>
       <img alt={game.name} src={game.image} />
@@ -30,7 +27,12 @@ const SettingsGameCard = ({ game, handleShowModal, setGame }: SettingsGameCardPr
           <EditIcon />
           Editar
         </Styled.SettingsGameEditButton>
-        <Styled.SettingsGameDeleteButton>
+        <Styled.SettingsGameDeleteButton
+          onClick={() => {
+            setGame(game);
+            handleShowDeleteModal();
+          }}
+        >
           <TrashIcon />
           Deletar
         </Styled.SettingsGameDeleteButton>
