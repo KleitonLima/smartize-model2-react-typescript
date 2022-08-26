@@ -1,19 +1,20 @@
-import { ErrorMessage, StyledInput } from "../../assets/styles/globalStyles";
+import { ErrorMessage, ModalOverlay, StyledInput } from "../../assets/styles/globalStyles";
 import Button from "../Button";
 import * as Styled from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from "../../services";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { mockedGenres } from "../../mocks";
 import toast from "react-hot-toast";
 import { useGames } from "../../contexts/games";
 import { Game } from "../../types";
 
 interface GameModalProps {
-  handleOpenModal: () => void;
+  handleShowModal: () => void;
   game?: Game;
+  setGame: Dispatch<SetStateAction<Game | undefined>>;
 }
 
 interface ProductData {
@@ -37,7 +38,7 @@ const updateGameSchema = yup.object().shape({
   description: yup.string(),
 });
 
-const GameModal = ({ handleOpenModal: handleShowModal, game }: GameModalProps) => {
+const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
   const { handleGetGames } = useGames();
 
   const [genreId, setGenreId] = useState<string>(game ? game.genreId : "");
@@ -64,6 +65,7 @@ const GameModal = ({ handleOpenModal: handleShowModal, game }: GameModalProps) =
         toast.success("Jogo cadastrado com sucesso!");
         handleGetGames();
         handleShowModal();
+        setGame(undefined);
       })
       .catch(() => {
         toast.error("Selecione uma categoria...");
@@ -77,11 +79,12 @@ const GameModal = ({ handleOpenModal: handleShowModal, game }: GameModalProps) =
       toast.success("Jogo atualizado com sucesso!");
       handleGetGames();
       handleShowModal();
+      setGame(undefined);
     });
   };
 
   return (
-    <Styled.ModalOverlay>
+    <ModalOverlay>
       <Styled.ModalContainer onSubmit={handleSubmit(game ? handleUpdateGame : handleNewGame)}>
         <h2>{game ? "Editando jogo" : "Cadastrar jogo"}</h2>
         <StyledInput placeholder="Nome" {...register("name")} defaultValue={game ? game.name : ""} />
@@ -92,9 +95,7 @@ const GameModal = ({ handleOpenModal: handleShowModal, game }: GameModalProps) =
         gerando erro 400 dizendo que o genreId precisa ser um UUID.
         Temporariamente resolvido com .catch na requisição*/}
         <Styled.Select value={genreId} onChange={(e) => setGenreId(e.target.value)}>
-          <option hidden selected>
-            Selecione o gênero
-          </option>
+          <option hidden>Selecione o gênero</option>
           {mockedGenres.map((elem) => (
             <option key={elem.id} value={elem.id}>
               {elem.name}
@@ -103,11 +104,18 @@ const GameModal = ({ handleOpenModal: handleShowModal, game }: GameModalProps) =
         </Styled.Select>
         {<ErrorMessage>{errors.name?.message || errors.image?.message || errors.price?.message || errors.description?.message}</ErrorMessage>}
         <div>
-          <Button text="Cancelar" variant="cancel" size="tiny" onClick={handleShowModal} />
-          <Button text="Cadastrar" size="tiny" type="submit" />
+          <Button
+            text="Cancelar"
+            variant="cancel"
+            size="tiny"
+            onClick={() => {
+              setGame(undefined), handleShowModal();
+            }}
+          />
+          <Button text={game ? "Salvar" : "Cadastrar"} size="tiny" type="submit" />
         </div>
       </Styled.ModalContainer>
-    </Styled.ModalOverlay>
+    </ModalOverlay>
   );
 };
 
