@@ -1,17 +1,5 @@
 import styled, { css } from "styled-components";
 
-export const ModalOverlay = styled.div`
-  ${({ theme }) => css`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    background-color: #0009;
-  `}
-`;
-
 export const ModalContainer = styled.form`
   ${({ theme }) => css`
     height: 400px;
