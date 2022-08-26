@@ -95,9 +95,7 @@ const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
         gerando erro 400 dizendo que o genreId precisa ser um UUID.
         Temporariamente resolvido com .catch na requisição*/}
         <Styled.Select value={genreId} onChange={(e) => setGenreId(e.target.value)}>
-          <option hidden selected>
-            Selecione o gênero
-          </option>
+          <option hidden>Selecione o gênero</option>
           {mockedGenres.map((elem) => (
             <option key={elem.id} value={elem.id}>
               {elem.name}
