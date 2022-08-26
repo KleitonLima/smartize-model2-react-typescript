@@ -37,3 +37,15 @@ export const ErrorMessage = styled.p`
     text-align: center;
   `}
 `;
+
+export const ModalOverlay = styled.div`
+  ${({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: #0009;
+  `}
+`;
