@@ -2,7 +2,6 @@ import toast from "react-hot-toast";
 import { ModalOverlay } from "../../assets/styles/globalStyles";
 import { useGames } from "../../contexts/games";
 import { api } from "../../services";
-import { Game } from "../../types";
 import Button from "../Button";
 import * as Styled from "./styles";
 
