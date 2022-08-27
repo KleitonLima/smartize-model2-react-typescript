@@ -1,5 +1,5 @@
 import * as Styled from "./styles";
-import SettingsGameCard from "../../components/SettingsGameCard";
+import EditGameCard from "../../components/EditGameCard";
 import { useGames } from "../../contexts/games";
 import { useState } from "react";
 import GameModal from "../../components/GameModal";
@@ -7,7 +7,7 @@ import { Game, Genre } from "../../types";
 import DeleteCardModal from "../../components/DeleteCardModal";
 import { useGenres } from "../../contexts/genres";
 import SettingsMenu from "../../components/SettingsMenu";
-import { AddEntityCard, SelectedContentsContainer, SettingsContainer, SettingsSelectedContainer } from "../../assets/styles/globalStyles";
+import { SelectedContentsContainer, SettingsContainer, SettingsSelectedContainer } from "../../assets/styles/globalStyles";
 
 const SettingsGames = () => {
   const { games } = useGames();
@@ -29,7 +29,7 @@ const SettingsGames = () => {
     <SettingsContainer>
       <SettingsMenu path="games" />
       <SettingsSelectedContainer>
-        <h2>Gerenciando os jogos</h2>
+        <h2>Gerenciando jogos</h2>
         <Styled.SelectedBarContainer>
           <Styled.SelectedBar>Todos</Styled.SelectedBar>
           {genres.map((elem) => {
@@ -41,12 +41,12 @@ const SettingsGames = () => {
           })}
         </Styled.SelectedBarContainer>
         <SelectedContentsContainer>
-          <AddEntityCard onClick={handleShowModal}>
+          <Styled.AddGameCard onClick={handleShowModal}>
             <h2>+</h2>
             <p>Adicionar jogo</p>
-          </AddEntityCard>
+          </Styled.AddGameCard>
           {filteredGamesSettings.map((elem) => (
-            <SettingsGameCard setGame={setGame} handleShowDeleteModal={handleShowDeleteModal} handleShowModal={handleShowModal} game={elem} key={elem.id} />
+            <EditGameCard setGame={setGame} handleShowDeleteModal={handleShowDeleteModal} handleShowModal={handleShowModal} game={elem} key={elem.id} />
           ))}
         </SelectedContentsContainer>
       </SettingsSelectedContainer>
