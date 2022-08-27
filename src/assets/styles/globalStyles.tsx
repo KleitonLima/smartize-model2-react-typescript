@@ -88,26 +88,3 @@ export const SelectedContentsContainer = styled.div`
     gap: 16px;
   `}
 `;
-
-export const AddEntityCard = styled.button`
-  ${({ theme }) => css`
-    width: 200px;
-    height: 250px;
-    border: 2px dashed ${theme.colors.primaryColor};
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: ${theme.colors.primaryColor};
-    text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
-
-    :hover {
-      transform: scale(0.99);
-      background-color: ${theme.colors.backgroundColor};
-      color: ${theme.colors.textPrimaryColor};
-      transition: all 0.2s;
-    }
-  `}
-`;
