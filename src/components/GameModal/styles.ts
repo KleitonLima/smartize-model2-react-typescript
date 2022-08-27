@@ -10,6 +10,7 @@ export const ModalContainer = styled.form`
     align-items: center;
     justify-content: space-around;
     padding: 16px;
+    
     h2 {
       width: 100%;
       text-align: left;
