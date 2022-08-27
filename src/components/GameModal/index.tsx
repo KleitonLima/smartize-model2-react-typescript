@@ -6,10 +6,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from "../../services";
 import { Dispatch, SetStateAction, useState } from "react";
-import { mockedGenres } from "../../mocks";
 import toast from "react-hot-toast";
 import { useGames } from "../../contexts/games";
 import { Game } from "../../types";
+import { useGenres } from "../../contexts/genres";
 
 interface GameModalProps {
   handleShowModal: () => void;
@@ -40,6 +40,7 @@ const updateGameSchema = yup.object().shape({
 
 const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
   const { handleGetGames } = useGames();
+  const { genres } = useGenres();
 
   const [genreId, setGenreId] = useState<string>(game ? game.genreId : "");
 
@@ -96,7 +97,7 @@ const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
         Temporariamente resolvido com .catch na requisição*/}
         <Styled.Select value={genreId} onChange={(e) => setGenreId(e.target.value)}>
           <option hidden>Selecione o gênero</option>
-          {mockedGenres.map((elem) => (
+          {genres.map((elem) => (
             <option key={elem.id} value={elem.id}>
               {elem.name}
             </option>

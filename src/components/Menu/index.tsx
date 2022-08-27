@@ -23,7 +23,7 @@ const Menu = ({ path }: MenuProps) => {
           </Styled.MenuButton>
         </Styled.MenuItem>
         <Styled.MenuItem active={path === "settings"}>
-          <Styled.MenuButton active={path === "settings"} onClick={() => navigate("/settings")}>
+          <Styled.MenuButton active={path === "settings"} onClick={() => navigate("/settings/games")}>
             <SettingsIcon />
           </Styled.MenuButton>
         </Styled.MenuItem>

@@ -2,7 +2,8 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuth } from "./contexts/auth";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import Settings from "./pages/Settings";
+import SettingsGames from "./pages/SettingsGames";
+import SettingsGenres from "./pages/SettingsGenres";
 
 const Router = () => {
   const { logged } = useAuth();
@@ -12,7 +13,9 @@ const Router = () => {
       {logged ? (
         <>
           <Route path="/" element={<Home />} />
-          <Route path="/settings" element={<Settings />} />
+          <Route path="/settings/games" element={<SettingsGames />} />
+          <Route path="/settings/genres" element={<SettingsGenres />} />
+          <Route path="/settings/users" element={<SettingsGames />} />
         </>
       ) : (
         <Route path="/login" element={<Login />} />
