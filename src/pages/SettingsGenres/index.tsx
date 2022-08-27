@@ -1,18 +1,15 @@
+import * as Styled from "./styles";
 import { useState } from "react";
-import { AddEntityCard, SelectedContentsContainer, SettingsContainer, SettingsSelectedContainer } from "../../assets/styles/globalStyles";
-import DeleteCardModal from "../../components/DeleteCardModal";
-import GameModal from "../../components/GameModal";
-import SettingsGameCard from "../../components/SettingsGameCard";
+import { SelectedContentsContainer, SettingsContainer, SettingsSelectedContainer } from "../../assets/styles/globalStyles";
 import SettingsMenu from "../../components/SettingsMenu";
-import { useGames } from "../../contexts/games";
 import { useGenres } from "../../contexts/genres";
-import { Game, Genre } from "../../types";
+import { EditIcon, TrashIcon } from "../../assets/icons";
+import GenreModal from "../../components/GenreModal";
 
 const SettingsGenres = () => {
   const { genres } = useGenres();
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
-  const [game, setGame] = useState<Game | undefined>(undefined);
 
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -24,20 +21,29 @@ const SettingsGenres = () => {
     <SettingsContainer>
       <SettingsMenu path="genres" />;
       <SettingsSelectedContainer>
-        <h2>Gerenciando os gêneros</h2>
-
+        <h2>Gerenciando gêneros</h2>
         <SelectedContentsContainer>
-          <AddEntityCard onClick={handleShowModal}>
+          <Styled.AddGenreCard onClick={handleShowModal}>
             <h2>+</h2>
             <p>Adicionar gênero</p>
-          </AddEntityCard>
+          </Styled.AddGenreCard>
           {genres.map((elem) => (
-            <SettingsGameCard setGame={setGame} handleShowDeleteModal={handleShowDeleteModal} handleShowModal={handleShowModal} key={elem.id} />
+            <Styled.EditGenreCard key={elem.id}>
+              <h4>{elem.name}</h4>
+              <div>
+                <Styled.GenreEditButton>
+                  <EditIcon /> <p>Editar</p>
+                </Styled.GenreEditButton>
+                <Styled.GenreDeleteButton>
+                  <TrashIcon />
+                  <p>Deletar</p>
+                </Styled.GenreDeleteButton>
+              </div>
+            </Styled.EditGenreCard>
           ))}
         </SelectedContentsContainer>
       </SettingsSelectedContainer>
-      {showModal && <GameModal setGame={setGame} game={game} handleShowModal={handleShowModal} />}
-      {showDeleteModal && <DeleteCardModal gameId={game?.id} handleShowDeleteModal={handleShowDeleteModal} />}
+      {showModal && <GenreModal handleShowModal={handleShowModal} />}
     </SettingsContainer>
   );
 };

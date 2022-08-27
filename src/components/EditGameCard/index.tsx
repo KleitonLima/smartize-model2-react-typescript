@@ -10,13 +10,12 @@ interface SettingsGameCardProps {
   setGame: Dispatch<SetStateAction<Game | undefined>>;
 }
 
-const SettingsGameCard = ({ game, handleShowModal, setGame, handleShowDeleteModal }: SettingsGameCardProps) => {
+const EditGameCard = ({ game, handleShowModal, setGame, handleShowDeleteModal }: SettingsGameCardProps) => {
   return (
     <Styled.EditEntityCard>
       <img alt={game.name} src={game.image} />
       <h5>{game.name}</h5>
       <h5>R${game.price}</h5>
-      {/* <p>{game.description}</p> */}
       <div>
         <Styled.SettingsGameEditButton
           onClick={() => {
@@ -41,4 +40,4 @@ const SettingsGameCard = ({ game, handleShowModal, setGame, handleShowDeleteModa
   );
 };
 
-export default SettingsGameCard;
+export default EditGameCard;
