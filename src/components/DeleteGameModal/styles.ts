@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const DeleteModalContainer = styled.div`
+export const DeleteGameContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
