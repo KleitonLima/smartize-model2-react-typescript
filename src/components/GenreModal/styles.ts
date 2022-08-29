@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const GenreModalContainer = styled.div`
+export const GenreModalContainer = styled.form`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
