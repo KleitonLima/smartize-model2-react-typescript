@@ -103,7 +103,7 @@ const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
             </option>
           ))}
         </Styled.Select>
-        {<ErrorMessage>{errors.name?.message || errors.image?.message || errors.price?.message || errors.description?.message}</ErrorMessage>}
+        <ErrorMessage>{errors.name?.message || errors.image?.message || errors.price?.message || errors.description?.message}</ErrorMessage>
         <div>
           <Button
             text="Cancelar"
