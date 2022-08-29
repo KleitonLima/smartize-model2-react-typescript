@@ -1,4 +1,4 @@
-import { ModalOverlay, StyledInput } from "../../assets/styles/globalStyles";
+import { ErrorMessage, ModalOverlay, StyledInput } from "../../assets/styles/globalStyles";
 import Button from "../Button";
 import * as Styled from "./styles";
 import { useForm } from "react-hook-form";
@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { api } from "../../services";
 import toast from "react-hot-toast";
+import { useGenres } from "../../contexts/genres";
 
 interface GenreModalProps {
   handleShowModal: () => void;
@@ -19,6 +20,7 @@ const newGameSchema = yup.object().shape({
 });
 
 const GenreModal = ({ handleShowModal }: GenreModalProps) => {
+  const { handleGetGenres } = useGenres();
   const {
     handleSubmit,
     register,
@@ -32,17 +34,24 @@ const GenreModal = ({ handleShowModal }: GenreModalProps) => {
     },
   };
   const handleNewGenre = (data: GenreData) => {
-    api.post("/genres", data, headers).then(() => {
-      toast.success("Gênero cadastrado com sucesso!");
-      handleShowModal();
-    });
+    api
+      .post("/genres", data, headers)
+      .then(() => {
+        handleGetGenres();
+        handleShowModal();
+        toast.success("Gênero cadastrado com sucesso!");
+      })
+      .catch(() => {
+        toast.error("Erro no cadastro do gênero!");
+      });
   };
 
   return (
     <ModalOverlay>
       <Styled.GenreModalContainer onSubmit={handleSubmit(handleNewGenre)}>
         <h2>Cadastrar gênero</h2>
-        <StyledInput placeholder="Nome" />
+        <StyledInput placeholder="Nome" {...register("name")} />
+        <ErrorMessage>{errors.name?.message}</ErrorMessage>
         <div>
           <Button text="Cancelar" variant="cancel" size="tiny" onClick={handleShowModal} />
           <Button text="Salvar" size="tiny" type="submit" />
