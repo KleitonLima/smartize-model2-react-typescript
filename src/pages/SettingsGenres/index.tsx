@@ -5,18 +5,27 @@ import SettingsMenu from "../../components/SettingsMenu";
 import { useGenres } from "../../contexts/genres";
 import { EditIcon, TrashIcon } from "../../assets/icons";
 import GenreModal from "../../components/GenreModal";
+import { Genre } from "../../types";
 
 const SettingsGenres = () => {
   const { genres } = useGenres();
+  const [genre, setGenre] = useState<Genre | undefined>(undefined);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 
   const handleShowModal = () => {
     setShowModal(!showModal);
+    setGenre(undefined);
   };
   const handleShowDeleteModal = () => {
     setShowDeleteModal(!showDeleteModal);
+    setGenre(undefined);
   };
+  const handleShowUpdateModal = (genre: Genre) => {
+    handleShowModal();
+    setGenre(genre);
+  };
+
   return (
     <SettingsContainer>
       <SettingsMenu path="genres" />;
@@ -31,7 +40,7 @@ const SettingsGenres = () => {
             <Styled.EditGenreCard key={elem.id}>
               <h4>{elem.name}</h4>
               <div>
-                <Styled.GenreEditButton>
+                <Styled.GenreEditButton onClick={() => handleShowUpdateModal(elem)}>
                   <EditIcon /> <p>Editar</p>
                 </Styled.GenreEditButton>
                 <Styled.GenreDeleteButton>
@@ -43,7 +52,7 @@ const SettingsGenres = () => {
           ))}
         </SelectedContentsContainer>
       </SettingsSelectedContainer>
-      {showModal && <GenreModal handleShowModal={handleShowModal} />}
+      {showModal && <GenreModal genre={genre} handleShowModal={handleShowModal} />}
     </SettingsContainer>
   );
 };
