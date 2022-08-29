@@ -4,7 +4,7 @@ import { useGames } from "../../contexts/games";
 import { useState } from "react";
 import GameModal from "../../components/GameModal";
 import { Game, Genre } from "../../types";
-import DeleteCardModal from "../../components/DeleteCardModal";
+import DeleteGameModal from "../../components/DeleteGameModal";
 import { useGenres } from "../../contexts/genres";
 import SettingsMenu from "../../components/SettingsMenu";
 import { SelectedContentsContainer, SettingsContainer, SettingsSelectedContainer } from "../../assets/styles/globalStyles";
@@ -25,7 +25,6 @@ const SettingsGames = () => {
   const handleShowDeleteModal = () => {
     setShowDeleteModal(!showDeleteModal);
     setGame(undefined);
-
   };
 
   return (
@@ -54,7 +53,7 @@ const SettingsGames = () => {
         </SelectedContentsContainer>
       </SettingsSelectedContainer>
       {showModal && <GameModal setGame={setGame} game={game} handleShowModal={handleShowModal} />}
-      {showDeleteModal && <DeleteCardModal gameId={game?.id} handleShowDeleteModal={handleShowDeleteModal} />}
+      {showDeleteModal && <DeleteGameModal gameId={game?.id} handleShowDeleteModal={handleShowDeleteModal} />}
     </SettingsContainer>
   );
 };
