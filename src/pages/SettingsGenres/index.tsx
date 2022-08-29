@@ -6,9 +6,11 @@ import { useGenres } from "../../contexts/genres";
 import { EditIcon, TrashIcon } from "../../assets/icons";
 import GenreModal from "../../components/GenreModal";
 import { Genre } from "../../types";
+import DeleteGenreModal from "../../components/DeleteGenreModal";
 
 const SettingsGenres = () => {
   const { genres } = useGenres();
+
   const [genre, setGenre] = useState<Genre | undefined>(undefined);
   const [showModal, setShowModal] = useState<boolean>(false);
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
@@ -17,9 +19,10 @@ const SettingsGenres = () => {
     setShowModal(!showModal);
     setGenre(undefined);
   };
-  const handleShowDeleteModal = () => {
+  const handleShowDeleteModal = (genre?: Genre) => {
     setShowDeleteModal(!showDeleteModal);
     setGenre(undefined);
+    setGenre(genre);
   };
   const handleShowUpdateModal = (genre: Genre) => {
     handleShowModal();
@@ -43,7 +46,11 @@ const SettingsGenres = () => {
                 <Styled.GenreEditButton onClick={() => handleShowUpdateModal(elem)}>
                   <EditIcon /> <p>Editar</p>
                 </Styled.GenreEditButton>
-                <Styled.GenreDeleteButton>
+                <Styled.GenreDeleteButton
+                  onClick={() => {
+                    handleShowDeleteModal(elem);
+                  }}
+                >
                   <TrashIcon />
                   <p>Deletar</p>
                 </Styled.GenreDeleteButton>
@@ -53,6 +60,7 @@ const SettingsGenres = () => {
         </SelectedContentsContainer>
       </SettingsSelectedContainer>
       {showModal && <GenreModal genre={genre} handleShowModal={handleShowModal} />}
+      {showDeleteModal && <DeleteGenreModal genreId={genre?.id} handleShowDeleteModal={handleShowDeleteModal} />}
     </SettingsContainer>
   );
 };
