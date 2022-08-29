@@ -20,9 +20,12 @@ const SettingsGames = () => {
 
   const handleShowModal = () => {
     setShowModal(!showModal);
+    setGame(undefined);
   };
   const handleShowDeleteModal = () => {
     setShowDeleteModal(!showDeleteModal);
+    setGame(undefined);
+
   };
 
   return (
