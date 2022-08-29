@@ -32,10 +32,10 @@ const newGameSchema = yup.object().shape({
   description: yup.string().required("Descrição obrigatória!"),
 });
 const updateGameSchema = yup.object().shape({
-  name: yup.string(),
-  image: yup.string().url("Url inválido!"),
-  price: yup.number(),
-  description: yup.string(),
+  name: yup.string().required("Nome é obrigatório!"),
+  image: yup.string().url("Url inválido!").required("Imagem obrigatória!"),
+  price: yup.number().required("Preço obrigatório!"),
+  description: yup.string().required("Descrição obrigatória!"),
 });
 
 const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
@@ -66,7 +66,6 @@ const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
         toast.success("Jogo cadastrado com sucesso!");
         handleGetGames();
         handleShowModal();
-        setGame(undefined);
       })
       .catch(() => {
         toast.error("Selecione uma categoria...");
@@ -80,7 +79,6 @@ const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
       toast.success("Jogo atualizado com sucesso!");
       handleGetGames();
       handleShowModal();
-      setGame(undefined);
     });
   };
 
@@ -103,16 +101,9 @@ const GameModal = ({ handleShowModal, game, setGame }: GameModalProps) => {
             </option>
           ))}
         </Styled.Select>
-        {<ErrorMessage>{errors.name?.message || errors.image?.message || errors.price?.message || errors.description?.message}</ErrorMessage>}
+        <ErrorMessage>{errors.name?.message || errors.image?.message || errors.price?.message || errors.description?.message}</ErrorMessage>
         <div>
-          <Button
-            text="Cancelar"
-            variant="cancel"
-            size="tiny"
-            onClick={() => {
-              setGame(undefined), handleShowModal();
-            }}
-          />
+          <Button text="Cancelar" variant="cancel" size="tiny" onClick={handleShowModal} />
           <Button text={game ? "Salvar" : "Cadastrar"} size="tiny" type="submit" />
         </div>
       </Styled.ModalContainer>

@@ -5,15 +5,15 @@ import { api } from "../../services";
 import Button from "../Button";
 import * as Styled from "./styles";
 
-interface DeleteCardModalProps {
+interface DeleteGameModalProps {
   gameId?: string;
   handleShowDeleteModal: () => void;
 }
 
-const DeleteCardModal = ({ gameId, handleShowDeleteModal }: DeleteCardModalProps) => {
+const DeleteGameModal = ({ gameId, handleShowDeleteModal }: DeleteGameModalProps) => {
   const { handleGetGames } = useGames();
 
-  const handleDeleteCard = () => {
+  const handleDeleteGame = () => {
     const token = localStorage.getItem("token");
     const headers = {
       headers: {
@@ -30,15 +30,15 @@ const DeleteCardModal = ({ gameId, handleShowDeleteModal }: DeleteCardModalProps
 
   return (
     <ModalOverlay>
-      <Styled.DeleteModalContainer>
+      <Styled.DeleteGameContainer>
         <h2>Deseja deletar?</h2>
         <div>
           <Button text="Não" variant="cancel" size="tiny" onClick={handleShowDeleteModal} />
-          <Button text="Sim" size="tiny" onClick={handleDeleteCard} />
+          <Button text="Sim" size="tiny" onClick={handleDeleteGame} />
         </div>
-      </Styled.DeleteModalContainer>
+      </Styled.DeleteGameContainer>
     </ModalOverlay>
   );
 };
 
-export default DeleteCardModal;
+export default DeleteGameModal;
