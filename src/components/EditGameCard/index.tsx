@@ -19,8 +19,8 @@ const EditGameCard = ({ game, handleShowModal, setGame, handleShowDeleteModal }:
       <div>
         <Styled.SettingsGameEditButton
           onClick={() => {
-            setGame(game);
             handleShowModal();
+            setGame(game);
           }}
         >
           <EditIcon />
@@ -28,8 +28,8 @@ const EditGameCard = ({ game, handleShowModal, setGame, handleShowDeleteModal }:
         </Styled.SettingsGameEditButton>
         <Styled.SettingsGameDeleteButton
           onClick={() => {
-            setGame(game);
             handleShowDeleteModal();
+            setGame(game);
           }}
         >
           <TrashIcon />
