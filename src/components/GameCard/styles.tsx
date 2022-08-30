@@ -29,5 +29,17 @@ export const CardContainer = styled.div<CardContainerProps>`
       top: -32px;
       border-radius: 16px;
     }
+
+    button {
+      background: none;
+      position: absolute;
+      top: 6px;
+      right: 4px;
+      cursor: pointer;
+
+      :hover {
+        color: ${theme.colors.secondaryColor};
+      }
+    }
   `}
 `;
