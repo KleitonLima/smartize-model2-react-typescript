@@ -40,8 +40,6 @@ const Home = () => {
       return favoritesIds.includes(elem.id);
     });
 
-    console.log(favoritesIds);
-    console.log(favoritesList);
     setUserFavorites(favoritesList);
   };
 
@@ -107,7 +105,7 @@ const Home = () => {
               </Styled.GamesOrderSelect>
             </div>
           </Styled.GamesHeaderContainer>
-          <GamesList list={isFavoriteList ? userFavorites : filteredGames} />
+          <GamesList isFavoriteList={isFavoriteList} handleGetFavorites={handleGetFavorites} list={isFavoriteList ? userFavorites : filteredGames} />
         </section>
       </Styled.HomeContentContainer>
       <OrderDetails />
