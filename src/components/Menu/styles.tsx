@@ -11,6 +11,7 @@ export const MenuContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   img {
     width: 90%;
     margin: 8px 0 8px 0;
