@@ -108,7 +108,7 @@ const Home = () => {
           <GamesList isFavoriteList={isFavoriteList} handleGetFavorites={handleGetFavorites} list={isFavoriteList ? userFavorites : filteredGames} />
         </section>
       </Styled.HomeContentContainer>
-      <OrderDetails />
+      <OrderDetails userFavorites={userFavorites} />
     </Styled.HomeContainer>
   );
 };
