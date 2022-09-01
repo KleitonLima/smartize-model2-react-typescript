@@ -1,9 +1,16 @@
-import { mockedGames } from "../../mocks";
+import { useGames } from "../../contexts/games";
+import { Game } from "../../types";
 import Button from "../Button";
 import CheckoutCard from "../CheckoutCard";
 import * as Styled from "./styles";
 
-const OrderDetails = () => {
+interface OrderDetailsProps {
+  userFavorites: Game[];
+}
+
+const OrderDetails = ({ userFavorites }: OrderDetailsProps) => {
+  const { games } = useGames();
+
   return (
     <Styled.OrderDetailsContainer>
       <Styled.OrderDetailsHeader>
@@ -21,9 +28,9 @@ const OrderDetails = () => {
           <h3>Preço</h3>
         </header>
         <Styled.CheckoutCardContainer>
-          <CheckoutCard game={mockedGames[0]} />
-          <CheckoutCard game={mockedGames[1]} />
-          <CheckoutCard game={mockedGames[2]} />
+          {userFavorites.map((elem) => {
+            return <CheckoutCard game={elem} />;
+          })}
         </Styled.CheckoutCardContainer>
       </Styled.CheckoutDetailsContainer>
       <Styled.OrderDetailsFooter>
