@@ -7,12 +7,12 @@ interface StyledButtonProps {
 
 export const StyledButton = styled.button<StyledButtonProps>`
   ${({ theme, variant, size }) => css`
-    background-color: ${theme.colors.primaryColor};
+    cursor: pointer;
     width: 298px;
     height: 40px;
     border-radius: 4px;
-    border: 1px solid #000;
-    cursor: pointer;
+    border: 1px solid ${theme.colors.textSecondaryColor};
+    background-color: ${theme.colors.primaryColor};
     color: ${theme.colors.textPrimaryColor};
 
     :hover {
@@ -22,17 +22,17 @@ export const StyledButton = styled.button<StyledButtonProps>`
 
     ${variant === "disable" &&
     css`
-      color: red;
-      background-color: #fff0;
-      border: 1px solid red;
+      color: ${theme.colors.secondaryColor};
+      background-color: ${theme.colors.transparent};
+      border: 1px solid ${theme.colors.secondaryColor};
       pointer-events: none;
-      opacity: 50%;
+      opacity: 90%;
     `}
 
     ${variant === "cancel" &&
     css`
       color: ${theme.colors.textSecondaryColor};
-      background-color: red;
+      background-color: ${theme.colors.secondaryColor};
     `}
 
     ${size === "tiny" &&
