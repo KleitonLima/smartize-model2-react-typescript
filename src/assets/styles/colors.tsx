@@ -6,4 +6,5 @@ export const colors = {
   backgroundColor: "#5c82f2",
   backgroundMenuColor: "#b3c4f8",
   transparent: '#fff0',
+  backgroundModal: '#0009'
 };
