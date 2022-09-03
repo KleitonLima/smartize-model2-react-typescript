@@ -8,20 +8,20 @@ interface StyledInputProps {
 export const StyledInput = styled.input<StyledInputProps>`
   ${({ theme, background, inputSize }) => css`
     all: unset;
-    width: 298px;
-    height: 40px;
-    padding: 0px 16px;
+    width: 18.6rem;
+    height: 2.5rem;
+    padding: 0rem 1rem;
     box-sizing: border-box;
-    border-radius: 4px;
+    border-radius: 0.3rem;
     background-color: ${theme.colors.backgroundMenuColor};
 
     ${inputSize === "small" &&
     css`
-      width: 172px;
+      width: 10.7rem;
     `}
     ${inputSize === "large" &&
     css`
-      width: 358px;
+      width: 22.3rem;
     `}
 
     ${background === "secondary" &&
@@ -33,20 +33,20 @@ export const StyledInput = styled.input<StyledInputProps>`
 
 export const ErrorMessage = styled.p`
   ${({ theme }) => css`
-    color: #ff0000;
+    color: ${theme.colors.secondaryColor};
     text-align: center;
   `}
 `;
 
 export const ModalOverlay = styled.div`
   ${({ theme }) => css`
+    width: 100%;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100vh;
     position: fixed;
-    background-color: #0009;
+    background-color: ${theme.colors.backgroundModal};
   `}
 `;
 
@@ -61,16 +61,16 @@ export const SettingsContainer = styled.div`
 
 export const SettingsSelectedContainer = styled.div`
   ${({ theme }) => css`
-    width: calc(75% - 100px);
-    height: calc(100% - 68px);
+    width: calc(75% - 6.3rem);
+    height: calc(100% - 4.3rem);
     display: flex;
     flex-direction: column;
-    background-color: ${theme.colors.backgroundMenuColor};
-    margin: 68px 16px 0px 0px;
-    border-radius: 8px 8px 0px 0px;
-    padding: 16px;
+    margin: 4.3rem 1rem 0rem 0rem;
+    padding: 1rem;
+    gap: 1rem;
     box-sizing: border-box;
-    gap: 16px;
+    border-radius: 0.5rem 0.5rem 0rem 0rem;
+    background-color: ${theme.colors.backgroundMenuColor};
 
     div {
       display: flex;
@@ -85,6 +85,6 @@ export const SelectedContentsContainer = styled.div`
     height: 100%;
     flex-wrap: wrap;
     overflow-y: scroll;
-    gap: 16px;
+    gap: 1rem;
   `}
 `;
