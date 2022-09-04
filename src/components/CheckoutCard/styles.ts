@@ -6,17 +6,17 @@ export const CheckoutCardDetails = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 8px 0px;
+    padding: .5rem 0rem;
     border-bottom: 1px solid ${theme.colors.primaryColor};
 
     div {
-      gap: 16px;
+      gap: 1rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
     img {
-      width: 50px;
+      width: 3.1rem;
     }
   `}
 `;
