@@ -10,13 +10,13 @@ export const SettingsSelectContainer = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 0px 16px;
+    padding: 0 1rem;
     box-sizing: border-box;
 
     h1 {
       font-family: ${theme.constants.logoFontFamily};
-      font-size: 35px;
-      padding: 16px 0px;
+      font-size: 2.1rem;
+      padding: 1rem 0;
       box-sizing: border-box;
       max-width: 100%;
     }
@@ -24,21 +24,21 @@ export const SettingsSelectContainer = styled.div`
 `;
 
 export const SelectButtonContainer = styled.div<ActiveButtonProps>`
-  ${({ theme, active }) => css`
+  ${({ theme }) => css`
     display: flex;
     flex-direction: column;
     max-width: 100%;
     height: 100%;
     background-color: ${theme.colors.backgroundMenuColor};
     box-sizing: border-box;
-    border-radius: 8px 8px 0px 0px;
-    gap: 8px;
+    border-radius: 0.5rem 0.5rem 0 0;
+    gap: 0.5rem;
   `}
 `;
 
 export const ButtonContainerOutside = styled.div<ActiveButtonProps>`
   ${({ theme, active }) => css`
-    padding: 16px 0px;
+    padding: 1rem 0;
     box-sizing: border-box;
     cursor: pointer;
 
@@ -46,14 +46,14 @@ export const ButtonContainerOutside = styled.div<ActiveButtonProps>`
       transition: all, 0.3s;
       background-color: ${theme.colors.primaryColor};
       color: ${theme.colors.textPrimaryColor};
-      border-radius: 8px 0px 0px 8px;
+      border-radius: 0.5rem 0 0 0.5rem;
     }
 
     ${active &&
     css`
       background-color: ${theme.colors.primaryColor};
       color: ${theme.colors.textPrimaryColor};
-      border-radius: 8px 0px 0px 8px;
+      border-radius: 0.5rem 0 0 0.5rem;
       box-sizing: border-box;
     `}
   `}
@@ -64,16 +64,16 @@ export const ButtonContainerInside = styled.div<ActiveButtonProps>`
     display: flex;
     justify-content: flex-start;
     cursor: pointer;
-    gap: 4px;
+    gap: 0.2rem;
     box-sizing: border-box;
-    padding-left: 16px;
+    padding-left: 1rem;
 
     ${active &&
     css`
       background-color: ${theme.colors.primaryColor};
       color: ${theme.colors.textPrimaryColor};
-      border-right: 3px solid ${theme.colors.textPrimaryColor};
-      border-radius: 8px 0px 0px 8px;
+      border-right: 0.2rem solid ${theme.colors.textPrimaryColor};
+      border-radius: 0.5rem 0 0 0.5rem;
       box-sizing: border-box;
     `}
   `}

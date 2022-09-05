@@ -7,7 +7,7 @@ interface ActiveButtonProps {
 export const SelectedBarContainer = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    border-bottom: 1px solid ${theme.colors.primaryColor};
+    border-bottom: 0.1rem solid ${theme.colors.primaryColor};
   `}
 `;
 
@@ -16,10 +16,10 @@ export const SelectedBar = styled.div<ActiveButtonProps>`
     border: none;
     font-weight: bold;
     color: ${theme.colors.textPrimaryColor};
-    margin-right: 8px;
-    padding: 0px 3px 3px 3px;
-    background-color: #fff0;
-    text-shadow: 0px 0px 5px ${theme.colors.primaryColor};
+    margin-right: 0.5rem;
+    padding: 0 0.2rem 0.2rem 0.2rem;
+    background-color: ${theme.colors.transparent};
+    text-shadow: 0 0 0.3rem ${theme.colors.primaryColor};
     box-sizing: border-box;
     cursor: pointer;
 
@@ -29,26 +29,26 @@ export const SelectedBar = styled.div<ActiveButtonProps>`
 
     ${active &&
     css`
-      border-bottom: 4px solid ${theme.colors.textPrimaryColor};
+      border-bottom: 0.2rem solid ${theme.colors.textPrimaryColor};
       color: ${theme.colors.primaryColor};
-      text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+      text-shadow: 0 0 0.3rem ${theme.colors.textPrimaryColor};
     `}
   `}
 `;
 
 export const AddGameCard = styled.button`
   ${({ theme }) => css`
-    width: 200px;
-    height: 250px;
-    border: 2px dashed ${theme.colors.primaryColor};
-    border-radius: 4px;
+    width: 12.5rem;
+    height: 15.6rem;
+    border: 0.2rem dashed ${theme.colors.primaryColor};
+    border-radius: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     color: ${theme.colors.primaryColor};
-    text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+    text-shadow: 0 0 0.3rem ${theme.colors.textPrimaryColor};
 
     :hover {
       transform: scale(0.99);
@@ -62,9 +62,9 @@ export const AddGameCard = styled.button`
 export const SelectedButtons = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    height: 100px;
+    height: 6.2rem;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
   `}
 `;

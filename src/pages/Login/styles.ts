@@ -19,11 +19,11 @@ export const LoginFormContainer = styled.form`
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    width: 343px;
-    height: 414px;
-    border-radius: 8px;
+    width: 21.4rem;
+    height: 25.8rem;
+    border-radius: 0.5rem;
     background-color: ${theme.colors.backgroundMenuColor};
-    box-shadow: 1px 1px 9px 3px ${theme.colors.primaryColor};
+    box-shadow: 0.1rem 0.1rem 0.5rem 0.2rem ${theme.colors.primaryColor};
 
     div {
       display: flex;
