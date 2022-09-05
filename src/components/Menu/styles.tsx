@@ -5,65 +5,69 @@ interface MenuItemProps {
 }
 
 export const MenuContainer = styled.div`
-  max-width: 100px;
-  background-color: #b3c4f8;
-  border-radius: 0px 16px 16px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${({ theme }) => css`
+    max-width: 6.2rem;
+    background-color: ${theme.colors.backgroundMenuColor};
+    border-radius: 0 1rem 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-  img {
-    width: 90%;
-    margin: 8px 0 8px 0;
-  }
+    img {
+      width: 90%;
+      margin: 0.5rem 0 0.5rem 0;
+    }
 
-  nav {
-    width: 100%;
-    height: 100vh;
-    justify-content: space-around;
-  }
+    nav {
+      width: 100%;
+      height: 100vh;
+      justify-content: space-around;
+    }
+  `}
 `;
 
 export const MenuItem = styled.div<MenuItemProps>`
-  height: 80px;
-  width: 80px;
-  border-radius: 16px 0px 0px 16px;
-  width: calc(100% - 16px);
-  margin-left: 16px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #fff0;
+  ${({ theme, active }) => css`
+    height: 5rem;
+    width: 5rem;
+    border-radius: 1rem 0 0 1rem;
+    width: calc(100% - 1rem);
+    margin-left: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff0;
 
-  ${({ active }) =>
-    active &&
+    ${active &&
     css`
-      background-color: #5c82f2;
+      background-color: ${theme.colors.backgroundColor};
     `}
+  `}
 `;
 
 export const MenuButton = styled.button<MenuItemProps>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background-color: #fff0;
-  margin-right: 16px;
-  padding: 16px;
-  cursor: pointer;
-  color: #0511f2;
+  ${({ theme, active }) => css`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    background-color: ${theme.colors.transparent};
+    margin-right: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    color: ${theme.colors.primaryColor};
 
-  :hover {
-    transition: all, 0.3s;
-    transform: scale(1.05);
-    background-color: #0511f2;
-    color: #fff;
-  }
+    :hover {
+      transition: all, 0.3s;
+      transform: scale(1.05);
+      background-color: ${theme.colors.primaryColor};
+      color: ${theme.colors.textPrimaryColor};
+    }
 
-  ${({ active }) =>
-    active &&
+    ${active &&
     css`
-      background-color: #0511f2;
-      color: #fff;
+      background-color: ${theme.colors.primaryColor};
+      color: ${theme.colors.textPrimaryColor};
     `}
+  `}
 `;

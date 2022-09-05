@@ -5,18 +5,20 @@ interface CategoryButtonProps {
 }
 
 export const HomeContainer = styled.div`
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  background-color: #5c82f2;
-  color: #fff;
-
-  section {
-    width: 100%;
+  ${({ theme }) => css`
     display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
+    width: 100%;
+    height: 100vh;
+    background-color: ${theme.colors.backgroundColor};
+    color: ${theme.colors.textPrimaryColor};
+
+    section {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+  `}
 `;
 
 export const HomeContentContainer = styled.div`
@@ -29,7 +31,7 @@ export const HomeContentHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  padding: 0px 16px 0px 16px;
+  padding: 0 1rem 0 1rem;
 `;
 
 export const TitleContainer = styled.div`
@@ -38,63 +40,68 @@ export const TitleContainer = styled.div`
   }
 
   p {
-    padding-top: 16px;
+    padding-top: 1rem;
     text-transform: capitalize;
     box-sizing: border-box;
   }
 `;
 
 export const SearchInputContainer = styled.div`
-  width: 150px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: #b3c4f8;
-  border-radius: 4px;
-  color: #0511f2;
+  ${({ theme }) => css`
+    width: 9.3rem;
+    height: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: ${theme.colors.backgroundMenuColor};
+    border-radius: 0.2rem;
+    color: ${theme.colors.primaryColor};
 
-  /* buscar outra solução */
-  div {
-    cursor: pointer;
-  }
-
-  input {
-    width: 65%;
-    background-color: #fff0;
-    outline: none;
-    ::placeholder {
-      color: #0511f2;
+    /* buscar outra solução */
+    div {
+      cursor: pointer;
     }
-  }
+
+    input {
+      width: 65%;
+      background-color: #fff0;
+      outline: none;
+      ::placeholder {
+        color: ${theme.colors.primaryColor};
+      }
+    }
+  `}
 `;
 
 export const GenreBar = styled.div`
-  width: 95%;
-  color: #0511f2;
-  border-bottom: 2px solid #b3c4f8;
+  ${({ theme }) => css`
+    width: 95%;
+    color: ${theme.colors.primaryColor};
+    border-bottom: 0.1rem solid ${theme.colors.backgroundMenuColor};
+  `}
 `;
 
 export const GenreSelectButton = styled.button<CategoryButtonProps>`
-  border: none;
-  font-weight: bold;
-  color: #0511f2;
-  margin-right: 8px;
-  padding: 0px 3px 3px 3px;
-  background-color: #fff0;
-  text-shadow: 0px 0px 5px #b3c4f8;
-  box-sizing: border-box;
+  ${({ theme, active }) => css`
+    border: none;
+    font-weight: bold;
+    color: ${theme.colors.primaryColor};
+    margin-right: 0.5rem;
+    padding: 0 0.1rem 0.1rem 0.1rem;
+    background-color: #fff0;
+    text-shadow: 0 0 0.2rem ${theme.colors.backgroundMenuColor};
+    box-sizing: border-box;
 
-  :hover {
-    color: #fff;
-  }
+    :hover {
+      color: ${theme.colors.textPrimaryColor};
+    }
 
-  ${({ active }) =>
-    active &&
+    ${active &&
     css`
-      border-bottom: 4px solid #0511f2;
-      color: #fff;
+      border-bottom: 0.2rem solid ${theme.colors.primaryColor};
+      color: ${theme.colors.textPrimaryColor};
     `}
+  `}
 `;
 
 export const GamesHeaderContainer = styled.div`
@@ -102,21 +109,23 @@ export const GamesHeaderContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 1rem;
   box-sizing: border-box;
 
   div {
     display: flex;
-    gap: 4px;
+    gap: 0.2rem;
     align-items: center;
   }
 `;
 
 export const GamesOrderSelect = styled.select`
-  background-color: #9f41d6b2;
-  color: #fff;
-  padding: 4px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  outline: none;
+  ${({ theme }) => css`
+    background-color: ${theme.colors.primaryColor};
+    color: ${theme.colors.textPrimaryColor};
+    padding: 0.2rem;
+    box-sizing: border-box;
+    border-radius: 0.2rem;
+    outline: none;
+  `}
 `;
