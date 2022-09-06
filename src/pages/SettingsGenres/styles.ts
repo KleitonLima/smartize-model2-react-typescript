@@ -2,17 +2,17 @@ import styled, { css } from "styled-components";
 
 export const AddGenreCard = styled.button`
   ${({ theme }) => css`
-    width: 150px;
-    height: 100px;
-    border: 2px dashed ${theme.colors.primaryColor};
-    border-radius: 4px;
+    width: 9.3rem;
+    height: 6.2rem;
+    border: 0.1rem dashed ${theme.colors.primaryColor};
+    border-radius: 0.2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     color: ${theme.colors.primaryColor};
-    text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+    text-shadow: 0 0 0.3rem ${theme.colors.textPrimaryColor};
 
     :hover {
       transform: scale(0.99);
@@ -25,20 +25,20 @@ export const AddGenreCard = styled.button`
 
 export const EditGenreCard = styled.div`
   ${({ theme }) => css`
-    width: 150px;
-    height: 100px;
-    border: 2px solid ${theme.colors.primaryColor};
+    width: 9.3rem;
+    height: 6.2rem;
+    border: 0.1rem solid ${theme.colors.primaryColor};
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     color: ${theme.colors.primaryColor};
-    text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+    text-shadow: 0 0 0.3rem ${theme.colors.textPrimaryColor};
 
     h4 {
-      padding-top: 16px;
+      padding-top: 1rem;
       box-sizing: border-box;
     }
 
@@ -52,16 +52,16 @@ export const EditGenreCard = styled.div`
 export const GenreEditButton = styled.button`
   ${({ theme }) => css`
     width: 100%;
-    height: 40px;
+    height: 2.5rem;
     background-color: ${theme.colors.backgroundColor};
     color: ${theme.colors.textPrimaryColor};
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 0.5rem;
     cursor: pointer;
-    text-shadow: 0px 0px 5px ${theme.colors.primaryColor};
-    border-radius: 0px 0px 0px 5px;
+    text-shadow: 0 0 0.3rem ${theme.colors.primaryColor};
+    border-radius: 0 0 0 0.3rem;
 
     :hover {
       background-color: ${theme.colors.primaryColor};
@@ -73,16 +73,16 @@ export const GenreEditButton = styled.button`
 export const GenreDeleteButton = styled.button`
   ${({ theme }) => css`
     width: 100%;
-    height: 40px;
+    height: 2.5rem;
     background-color: ${theme.colors.backgroundColor};
     color: ${theme.colors.textPrimaryColor};
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 0.5rem;
     cursor: pointer;
-    text-shadow: 0px 0px 5px ${theme.colors.primaryColor};
-    border-radius: 0px 0px 5px 0px;
+    text-shadow: 0 0 0.3rem ${theme.colors.primaryColor};
+    border-radius: 0 0 0.3rem 0;
 
     :hover {
       text-shadow: none;
