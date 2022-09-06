@@ -4,11 +4,11 @@ export const DeleteGenreContainer = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-direction: column;
-    width: 200px;
-    height: 100px;
+    width: 12.5rem;
+    height: 6.2rem;
     justify-content: space-between;
     background-color: ${theme.colors.backgroundColor};
-    padding: 32px;
-    border-radius: 16px;
+    padding: 2rem;
+    border-radius: 1rem;
   `}
 `;

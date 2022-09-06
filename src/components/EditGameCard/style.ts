@@ -2,20 +2,21 @@ import styled, { css } from "styled-components";
 
 export const EditEntityCard = styled.div`
   ${({ theme }) => css`
-    width: 200px;
-    height: 250px;
+    width: 12.5rem;
+    height: 15.6rem;
     border: 2px solid ${theme.colors.primaryColor};
     box-sizing: border-box;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     color: ${theme.colors.primaryColor};
-    text-shadow: 0px 0px 5px ${theme.colors.textPrimaryColor};
+    text-shadow: 0 0 5px ${theme.colors.textPrimaryColor};
 
     img {
-      width: 150px;
+      width: 9.3rem;
+      border-radius: 0.5rem;
     }
     div {
       display: flex;
@@ -27,16 +28,16 @@ export const EditEntityCard = styled.div`
 export const SettingsGameEditButton = styled.button`
   ${({ theme }) => css`
     width: 100%;
-    height: 40px;
+    height: 2.5rem;
     background-color: ${theme.colors.backgroundColor};
     color: ${theme.colors.textPrimaryColor};
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 0.5rem;
     cursor: pointer;
-    text-shadow: 0px 0px 5px ${theme.colors.primaryColor};
-    border-radius: 0px 0px 0px 5px;
+    text-shadow: 0 0 0.3rem ${theme.colors.primaryColor};
+    border-radius: 0 0 0 0.3rem;
 
     :hover {
       background-color: ${theme.colors.primaryColor};
@@ -48,21 +49,21 @@ export const SettingsGameEditButton = styled.button`
 export const SettingsGameDeleteButton = styled.button`
   ${({ theme }) => css`
     width: 100%;
-    height: 40px;
+    height: 2.5rem;
     background-color: ${theme.colors.backgroundColor};
     color: ${theme.colors.textPrimaryColor};
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    gap: 0.5rem;
     cursor: pointer;
-    text-shadow: 0px 0px 5px ${theme.colors.primaryColor};
-    border-radius: 0px 0px 5px 0px;
+    text-shadow: 0 0 0.3rem ${theme.colors.primaryColor};
+    border-radius: 0 0 0.3rem 0;
 
     :hover {
       text-shadow: none;
       background-color: ${theme.colors.secondaryColor};
-      transition: all, 0.2s;
+      transition: all 0.3s;
     }
   `}
 `;

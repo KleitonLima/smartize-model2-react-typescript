@@ -7,34 +7,34 @@ interface CardContainerProps {
 
 export const CardContainer = styled.div<CardContainerProps>`
   ${({ theme }) => css`
-    width: 200px;
-    height: 250px;
+    width: 12.5rem;
+    height: 15.6rem;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: end;
     background-color: ${theme.colors.backgroundMenuColor};
-    gap: 6px;
-    border-radius: 16px;
+    gap: 0.3rem;
+    border-radius: 1rem;
     font-family: ${theme.constants.bodyFontFamily};
     color: ${theme.colors.textSecondaryColor};
-    padding: 8px;
+    padding: 0.5rem;
     position: relative;
-    padding-top: 24px;
+    padding-top: 1.5rem;
 
     img {
-      width: 150px;
-      height: 150px;
+      width: 9.3rem;
+      height: 9.3rem;
       position: absolute;
-      top: -32px;
-      border-radius: 16px;
+      top: -2rem;
+      border-radius: 1rem;
     }
 
     button {
       background: none;
       position: absolute;
-      top: 6px;
-      right: 4px;
+      top: 0.3rem;
+      right: 0.3rem;
       cursor: pointer;
 
       :hover {
